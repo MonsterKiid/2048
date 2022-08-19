@@ -44,14 +44,32 @@ namespace _2048
         {
             if (bloc.Moovable)
             {
-                bloc.Moovable = false;
-                bloc.BackColor = Color.DarkGray;
+                int tour = 0;
                 int tag = int.Parse(bloc.Tag.ToString());
                 while (!firstLine.Contains(tag) && !getPreviousBlock("vertical", getBlockByTag(tag)).Moovable)
-                    tag -= 4;
+                {
+                    tag-=4;
+                    tour++;
+                }
                 Bloc newBlock = getBlockByTag(tag);
                 newBlock.Moovable = true;
-                newBlock.BackColor = Color.Orange;
+                newBlock.Valeur = bloc.Valeur;
+                ColorBlockByValue(newBlock, newBlock.Valeur);
+                Bloc previousBlock = getPreviousBlock("vertical", newBlock);
+                if (newBlock.Valeur == previousBlock.Valeur && previousBlock != newBlock)
+                {
+                    ColorBlockByValue(previousBlock, previousBlock.Valeur * 2);
+                    previousBlock.Valeur *= 2;
+                    newBlock.Moovable = false;
+                    newBlock.Valeur = 0;
+                    newBlock.BackColor = Color.DarkGray;
+                }
+                if(tour>0)
+                {
+                    bloc.Moovable = false;
+                    bloc.Valeur = 0;
+                    bloc.BackColor = Color.DarkGray;
+                }
             }
         }
 
@@ -59,14 +77,67 @@ namespace _2048
         {
             if (bloc.Moovable)
             {
-                bloc.Moovable = false;
-                bloc.BackColor = Color.DarkGray;
+                int tour = 0;
                 int tag = int.Parse(bloc.Tag.ToString());
                 while (!fourthLine.Contains(tag) && !getNextBlock("vertical", getBlockByTag(tag)).Moovable)
+                {
                     tag += 4;
+                    tour++;
+                }
                 Bloc newBlock = getBlockByTag(tag);
                 newBlock.Moovable = true;
-                newBlock.BackColor = Color.Orange;
+                newBlock.Valeur = bloc.Valeur;
+                ColorBlockByValue(newBlock, newBlock.Valeur);
+                Bloc nextBlock = getNextBlock("vertical", newBlock);
+                if (newBlock.Valeur == nextBlock.Valeur && newBlock != nextBlock)
+                {
+                    ColorBlockByValue(nextBlock, nextBlock.Valeur * 2);
+                    nextBlock.Valeur *= 2;
+                    newBlock.Moovable = false;
+                    newBlock.Valeur = 0;
+                    newBlock.BackColor = Color.DarkGray;
+                }
+                if(tour>0)
+                {
+                    bloc.Moovable = false;
+                    bloc.Valeur = 0;
+                    bloc.BackColor = Color.DarkGray;
+                }
+            }
+        }
+        public void mooveLeft(Bloc bloc)
+        {
+            if (bloc.Moovable)
+            {
+                int tour = 0;
+                int tag = int.Parse(bloc.Tag.ToString());
+                while (!firstColumn.Contains(tag) && !getPreviousBlock("horizontal", getBlockByTag(tag)).Moovable)
+                {
+                    tag--;
+                    tour++;
+                }
+                Bloc newBlock = getBlockByTag(tag);
+                newBlock.Moovable = true;
+                newBlock.Valeur = bloc.Valeur;
+                ColorBlockByValue(newBlock, newBlock.Valeur);
+
+                Bloc previousBlock = getPreviousBlock("horizontal", newBlock);
+                //MessageBox.Show("BLOC " + newBlock.Name + " (Valeur: " + newBlock.Valeur + ")\n\nLe previous block est: " + previousBlock.Name + "\nValeur:" + previousBlock.Valeur);
+                if (newBlock.Valeur == previousBlock.Valeur && previousBlock != newBlock)
+                {
+                    ColorBlockByValue(previousBlock, previousBlock.Valeur * 2);
+                    previousBlock.Valeur *= 2;
+                    newBlock.Moovable = false;
+                    newBlock.Valeur = 0;
+                    newBlock.BackColor = Color.DarkGray;
+
+                }
+                if(tour>0)
+                {
+                    bloc.Moovable = false;
+                    bloc.Valeur = 0;
+                    bloc.BackColor = Color.DarkGray;
+                }
             }
         }
 
@@ -74,14 +145,33 @@ namespace _2048
         {
             if (bloc.Moovable)
             {
-                bloc.Moovable = false;
-                bloc.BackColor = Color.DarkGray;
+                int tour = 0;
                 int tag = int.Parse(bloc.Tag.ToString());
                 while (!fourthColumn.Contains(tag) && !getNextBlock("horizontal", getBlockByTag(tag)).Moovable)
+                {    
                     tag++;
+                    tour++;
+                }
                 Bloc newBlock = getBlockByTag(tag);
                 newBlock.Moovable = true;
-                newBlock.BackColor = Color.Orange;
+                newBlock.Valeur = bloc.Valeur;
+                ColorBlockByValue(newBlock, newBlock.Valeur);
+                Bloc nextBlock = getNextBlock("horizontal", newBlock);
+                if (newBlock.Valeur == nextBlock.Valeur && newBlock != nextBlock)
+                {
+                    ColorBlockByValue(nextBlock, nextBlock.Valeur * 2);
+                    nextBlock.Valeur *= 2;
+                    newBlock.Moovable = false;
+                    newBlock.Valeur = 0;
+                    newBlock.BackColor = Color.DarkGray;
+                }
+                if(tour>0)
+                {
+                    bloc.Moovable = false;
+                    bloc.Valeur = 0;
+                    bloc.BackColor = Color.DarkGray;
+                }
+                
             }
         }
 
@@ -133,27 +223,12 @@ namespace _2048
                 case 16: bloc.BackColor = Color.Orange; break;
                 case 32: bloc.BackColor = Color.Tomato; break;
                 case 64: bloc.BackColor = Color.Red; break;
-                case 128: bloc.BackColor = Color.LightYellow; break;
-                case 256: bloc.BackColor = Color.LightYellow; break;
-                case 512: bloc.BackColor = Color.LightYellow; break;
-                case 1024: bloc.BackColor = Color.LightYellow; break;
-                case 2048: bloc.BackColor = Color.Yellow; break;
+                case 128: bloc.BackColor = Color.Yellow; break;
+                case 256: bloc.BackColor = Color.Yellow; break;
+                case 512: bloc.BackColor = Color.Yellow; break;
+                case 1024: bloc.BackColor = Color.Yellow; break;
+                case 2048: bloc.BackColor = Color.Gold; break;
                 default: bloc.BackColor = Color.DarkGray; break;
-            }
-        }
-
-        public void mooveLeft(Bloc bloc)
-        {
-            if (bloc.Moovable)
-            {
-                bloc.Moovable = false;
-                bloc.BackColor = Color.DarkGray;
-                int tag = int.Parse(bloc.Tag.ToString());
-                while (!firstColumn.Contains(tag) && !getPreviousBlock("horizontal", getBlockByTag(tag)).Moovable)
-                    tag--;
-                Bloc newBlock = getBlockByTag(tag);
-                newBlock.Moovable = true;
-                newBlock.BackColor = Color.Orange;
             }
         }
 
@@ -229,6 +304,18 @@ namespace _2048
                 {
                     Bloc bloc = getBlockByTag(i);
                     mooveUp(bloc);
+                }
+            }
+            bool found = false;
+            foreach(Bloc bloc in pnlGrille.Controls.OfType<Bloc>())
+            {
+                if(!bloc.Moovable && !found)
+                {
+          
+                    found = true;
+                    bloc.Moovable = true;
+                    bloc.Valeur = 2;
+                    bloc.BackColor = Color.White;
                 }
             }
         }

@@ -256,15 +256,15 @@
             // 
             // bloc3
             // 
-            this.bloc3.BackColor = System.Drawing.Color.Orange;
+            this.bloc3.BackColor = System.Drawing.Color.DarkGray;
             this.bloc3.Location = new System.Drawing.Point(249, 11);
-            this.bloc3.Moovable = true;
+            this.bloc3.Moovable = false;
             this.bloc3.Name = "bloc3";
             this.bloc3.Size = new System.Drawing.Size(100, 100);
             this.bloc3.TabIndex = 2;
             this.bloc3.TabStop = false;
             this.bloc3.Tag = "2";
-            this.bloc3.Valeur = 2;
+            this.bloc3.Valeur = 0;
             this.bloc3.X = 2;
             this.bloc3.Y = 0;
             // 
@@ -278,21 +278,21 @@
             this.bloc2.TabIndex = 1;
             this.bloc2.TabStop = false;
             this.bloc2.Tag = "1";
-            this.bloc2.Valeur = 2;
+            this.bloc2.Valeur = 8;
             this.bloc2.X = 1;
             this.bloc2.Y = 0;
             // 
             // bloc1
             // 
-            this.bloc1.BackColor = System.Drawing.Color.DarkGray;
+            this.bloc1.BackColor = System.Drawing.Color.White;
             this.bloc1.Location = new System.Drawing.Point(15, 11);
-            this.bloc1.Moovable = false;
+            this.bloc1.Moovable = true;
             this.bloc1.Name = "bloc1";
             this.bloc1.Size = new System.Drawing.Size(100, 100);
             this.bloc1.TabIndex = 0;
             this.bloc1.TabStop = false;
             this.bloc1.Tag = "0";
-            this.bloc1.Valeur = 0;
+            this.bloc1.Valeur = 2;
             this.bloc1.X = 0;
             this.bloc1.Y = 0;
             // 

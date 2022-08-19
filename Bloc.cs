@@ -32,7 +32,15 @@ namespace _2048
             }
             set
             {
+                if(value == 0)
+                {
+                    lblValeur.Visible = false;
+                } else
+                {
+                    lblValeur.Visible = true;
+                }
                 lblValeur.Text = value.ToString();
+
             }
         }
 
@@ -44,6 +52,7 @@ namespace _2048
             }
             set
             {
+                
                 moovable = value;
             }
         }
