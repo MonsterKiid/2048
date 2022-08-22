@@ -46,16 +46,16 @@
             this.block2 = new _2048.Block();
             this.block1 = new _2048.Block();
             this.lbl2048 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.pnlScore = new System.Windows.Forms.Panel();
             this.lblScore = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lblMeilleur = new System.Windows.Forms.Label();
+            this.lblTitreScore = new System.Windows.Forms.Label();
+            this.pnlRecord = new System.Windows.Forms.Panel();
+            this.lblRecord = new System.Windows.Forms.Label();
+            this.lblTitreRecord = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlGrille.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.pnlScore.SuspendLayout();
+            this.pnlRecord.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -287,70 +287,70 @@
             this.lbl2048.TabIndex = 17;
             this.lbl2048.Text = "2048";
             // 
-            // panel1
+            // pnlScore
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(110)))), ((int)(((byte)(101)))));
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.lblScore);
-            this.panel1.Location = new System.Drawing.Point(190, 22);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(97, 61);
-            this.panel1.TabIndex = 16;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(37, 32);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(22, 24);
-            this.label1.TabIndex = 19;
-            this.label1.Text = "0";
+            this.pnlScore.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(110)))), ((int)(((byte)(101)))));
+            this.pnlScore.Controls.Add(this.lblScore);
+            this.pnlScore.Controls.Add(this.lblTitreScore);
+            this.pnlScore.Location = new System.Drawing.Point(190, 22);
+            this.pnlScore.Name = "pnlScore";
+            this.pnlScore.Size = new System.Drawing.Size(97, 61);
+            this.pnlScore.TabIndex = 16;
             // 
             // lblScore
             // 
             this.lblScore.AutoSize = true;
-            this.lblScore.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblScore.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(228)))), ((int)(((byte)(218)))));
-            this.lblScore.Location = new System.Drawing.Point(21, 10);
+            this.lblScore.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblScore.ForeColor = System.Drawing.Color.White;
+            this.lblScore.Location = new System.Drawing.Point(37, 32);
             this.lblScore.Name = "lblScore";
-            this.lblScore.Size = new System.Drawing.Size(55, 20);
-            this.lblScore.TabIndex = 18;
-            this.lblScore.Text = "SCORE";
+            this.lblScore.Size = new System.Drawing.Size(22, 24);
+            this.lblScore.TabIndex = 19;
+            this.lblScore.Text = "0";
             // 
-            // panel2
+            // lblTitreScore
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(110)))), ((int)(((byte)(101)))));
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.lblMeilleur);
-            this.panel2.Location = new System.Drawing.Point(300, 22);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(97, 61);
-            this.panel2.TabIndex = 20;
+            this.lblTitreScore.AutoSize = true;
+            this.lblTitreScore.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitreScore.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(228)))), ((int)(((byte)(218)))));
+            this.lblTitreScore.Location = new System.Drawing.Point(21, 10);
+            this.lblTitreScore.Name = "lblTitreScore";
+            this.lblTitreScore.Size = new System.Drawing.Size(55, 20);
+            this.lblTitreScore.TabIndex = 18;
+            this.lblTitreScore.Text = "SCORE";
             // 
-            // label2
+            // pnlRecord
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(37, 32);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(22, 24);
-            this.label2.TabIndex = 19;
-            this.label2.Text = "0";
+            this.pnlRecord.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(110)))), ((int)(((byte)(101)))));
+            this.pnlRecord.Controls.Add(this.lblRecord);
+            this.pnlRecord.Controls.Add(this.lblTitreRecord);
+            this.pnlRecord.Location = new System.Drawing.Point(300, 22);
+            this.pnlRecord.Name = "pnlRecord";
+            this.pnlRecord.Size = new System.Drawing.Size(97, 61);
+            this.pnlRecord.TabIndex = 20;
             // 
-            // lblMeilleur
+            // lblRecord
             // 
-            this.lblMeilleur.AutoSize = true;
-            this.lblMeilleur.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMeilleur.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(228)))), ((int)(((byte)(218)))));
-            this.lblMeilleur.Location = new System.Drawing.Point(14, 10);
-            this.lblMeilleur.Name = "lblMeilleur";
-            this.lblMeilleur.Size = new System.Drawing.Size(73, 20);
-            this.lblMeilleur.TabIndex = 18;
-            this.lblMeilleur.Text = "MEILLEUR";
-            this.lblMeilleur.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblRecord.AutoSize = true;
+            this.lblRecord.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRecord.ForeColor = System.Drawing.Color.White;
+            this.lblRecord.Location = new System.Drawing.Point(37, 32);
+            this.lblRecord.Name = "lblRecord";
+            this.lblRecord.Size = new System.Drawing.Size(22, 24);
+            this.lblRecord.TabIndex = 19;
+            this.lblRecord.Text = "0";
+            // 
+            // lblTitreRecord
+            // 
+            this.lblTitreRecord.AutoSize = true;
+            this.lblTitreRecord.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitreRecord.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(228)))), ((int)(((byte)(218)))));
+            this.lblTitreRecord.Location = new System.Drawing.Point(14, 10);
+            this.lblTitreRecord.Name = "lblTitreRecord";
+            this.lblTitreRecord.Size = new System.Drawing.Size(73, 20);
+            this.lblTitreRecord.TabIndex = 18;
+            this.lblTitreRecord.Text = "MEILLEUR";
+            this.lblTitreRecord.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBox1
             // 
@@ -367,8 +367,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(480, 571);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnlRecord);
+            this.Controls.Add(this.pnlScore);
             this.Controls.Add(this.lbl2048);
             this.Controls.Add(this.pnlGrille);
             this.Name = "frmPartie";
@@ -376,10 +376,10 @@
             this.Load += new System.EventHandler(this.frmPartie_Load);
             this.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.frmPartie_PreviewKeyDown);
             this.pnlGrille.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.pnlScore.ResumeLayout(false);
+            this.pnlScore.PerformLayout();
+            this.pnlRecord.ResumeLayout(false);
+            this.pnlRecord.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -406,12 +406,12 @@
         private Block block13;
         private System.Windows.Forms.Panel pnlGrille;
         private System.Windows.Forms.Label lbl2048;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel pnlScore;
         private System.Windows.Forms.Label lblScore;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label lblMeilleur;
+        private System.Windows.Forms.Label lblTitreScore;
+        private System.Windows.Forms.Panel pnlRecord;
+        private System.Windows.Forms.Label lblRecord;
+        private System.Windows.Forms.Label lblTitreRecord;
         private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
