@@ -14,16 +14,12 @@ namespace _2048
     {
         private int valeur = 0;
         private bool moovable = false;
-        private int x = 0;
-        private int y = 0;
 
         public Block()
         {
             InitializeComponent();
             lblValeur.Text = valeur.ToString();
         }
-
-
         public int Valeur
         {
             get
@@ -35,13 +31,15 @@ namespace _2048
                 if(value == 0)
                 {
                     lblValeur.Visible = false;
+                    this.Moovable = false;
                 } else
                 {
                     lblValeur.Visible = true;
+                    this.Moovable = true;
                 }
                 lblValeur.Text = value.ToString();
                 lblValeur.Location = new Point((this.Width - lblValeur.Width) / 2, (this.Height - lblValeur.Height) / 2);
-
+                frmPartie.ColorBlockByValue(this, value);
             }
         }
 
@@ -58,28 +56,6 @@ namespace _2048
             }
         }
 
-        public int X
-        {
-            get
-            {
-                return x;
-            }
-            set
-            {
-                x = value;
-            }
-        }
-
-        public int Y
-        {
-            get
-            {
-                return y;
-            }
-            set
-            {
-                y = value;
-            }
-        }
+        
     }
 }
