@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace _2048
 {
-    public partial class Bloc : UserControl
+    public partial class Block : UserControl
     {
         private int valeur = 0;
         private bool moovable = false;
         private int x = 0;
         private int y = 0;
 
-        public Bloc()
+        public Block()
         {
             InitializeComponent();
             lblValeur.Text = valeur.ToString();
@@ -40,6 +40,7 @@ namespace _2048
                     lblValeur.Visible = true;
                 }
                 lblValeur.Text = value.ToString();
+                lblValeur.Location = new Point((this.Width - lblValeur.Width) / 2, (this.Height - lblValeur.Height) / 2);
 
             }
         }
