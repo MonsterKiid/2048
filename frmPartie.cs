@@ -28,7 +28,7 @@ namespace _2048
             InitializeComponent();
         }
 
-        /**
+        /*
          * Cette fonction sert à récupérer le mouvement des blocs selon la touche pressée
          * 
          * On va d'abord bouger l'avant-dernière colonne (inutile de bouger la dernière car rien ne va changer == bordure)
@@ -191,6 +191,9 @@ namespace _2048
                 {
                     // On incrémente la valeur du bloc
                     nearestBlock.Valeur *= 2;
+
+                    // Si le joueur atteint 2048
+                    if (nearestBlock.Valeur == 2048) MessageBox.Show("Vous avez gagné la partie parce que vous avez atteint 2048 !\n\nVous pouvez toujours continuer à jouer jusqu'à ce que le jeu soit bloqué", "Félicitations", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     // On met à jour le score et on le centre sur le panel
                     lblScore.Text = (int.Parse(lblScore.Text) + nearestBlock.Valeur).ToString();
