@@ -67,12 +67,12 @@ namespace _2048
                 }
                 Block newBlock = getBlockByTag(tag);
                 newBlock.Valeur = block.Valeur;
-                ColorBlockByValue(newBlock, newBlock.Valeur);
                 Block nearestBlock = (direction == "up" || direction == "left") ? nearestBlock = getPreviousBlock(facing, newBlock) : nearestBlock = getNextBlock(facing, newBlock);
                 if (newBlock.Valeur == nearestBlock.Valeur && nearestBlock != newBlock)
                 {
-                    ColorBlockByValue(nearestBlock, nearestBlock.Valeur * 2);
                     nearestBlock.Valeur *= 2;
+                    lblScore.Text = (int.Parse(lblScore.Text) + nearestBlock.Valeur).ToString();
+                    lblScore.Location = new Point((pnlScore.Width - lblScore.Width)/2, lblTitreScore.Location.Y+20);
                     newBlock.Valeur = 0;
                     newBlock.BackColor = Color.FromArgb(238, 228, 218);
                 }
@@ -106,23 +106,6 @@ namespace _2048
 
         }
 
-        public static void ColorBlockByValue(Block block, int value)
-        {
-            switch (value)
-            {
-                case 0: block.BackColor = Color.FromArgb(238, 228, 218); break;
-                case 2: block.BackColor = ColorTranslator.FromHtml("#eee4da"); break;
-                case 4: block.BackColor = ColorTranslator.FromHtml("#ede0c8"); break;
-                case 8: case 16: block.BackColor = ColorTranslator.FromHtml("#f2b179"); break;
-                case 32: block.BackColor = ColorTranslator.FromHtml("#f67c5f"); break;
-                case 64: block.BackColor = ColorTranslator.FromHtml("#f65e3b"); break;
-                default: block.BackColor = ColorTranslator.FromHtml("#edcf72"); break;
-            }
-            if (value > 4) block.ForeColor = ColorTranslator.FromHtml("#f9f6f2");
-            
-
-        }
-
         private void addBlock()
         {
             bool found = false;
@@ -133,7 +116,6 @@ namespace _2048
                 {
                     found = true;
                     block.Valeur = 2;
-                    block.BackColor = Color.White;
                 }
             }
         }
@@ -169,7 +151,12 @@ namespace _2048
 
         private void frmPartie_Load(object sender, EventArgs e)
         {
-            for(int i = 0;i<2;i++)
+            lblTitreScore.Location = new Point((pnlScore.Width - lblTitreScore.Width)/2, lblTitreScore.Location.Y);
+            lblTitreRecord.Location = new Point((pnlRecord.Width - lblTitreRecord.Width) / 2, lblTitreRecord.Location.Y);
+            lblScore.Location = new Point((pnlScore.Width - lblScore.Width) / 2, lblTitreScore.Location.Y+20);
+            lblRecord.Location = new Point((pnlRecord.Width - lblRecord.Width) / 2, lblTitreRecord.Location.Y+20);
+
+            for (int i = 0;i<2;i++)
             {
                 addBlock();
             }
