@@ -29,26 +29,26 @@
         private void InitializeComponent()
         {
             this.pnlGrille = new System.Windows.Forms.Panel();
-            this.bloc13 = new _2048.Block();
-            this.bloc14 = new _2048.Block();
-            this.bloc15 = new _2048.Block();
-            this.bloc16 = new _2048.Block();
-            this.bloc9 = new _2048.Block();
-            this.bloc10 = new _2048.Block();
-            this.bloc11 = new _2048.Block();
-            this.bloc12 = new _2048.Block();
-            this.bloc5 = new _2048.Block();
-            this.bloc6 = new _2048.Block();
-            this.bloc7 = new _2048.Block();
-            this.bloc8 = new _2048.Block();
-            this.bloc4 = new _2048.Block();
-            this.bloc3 = new _2048.Block();
-            this.bloc2 = new _2048.Block();
-            this.bloc1 = new _2048.Block();
+            this.block16 = new _2048.Block();
+            this.block15 = new _2048.Block();
+            this.block14 = new _2048.Block();
+            this.block13 = new _2048.Block();
+            this.block12 = new _2048.Block();
+            this.block11 = new _2048.Block();
+            this.block10 = new _2048.Block();
+            this.block9 = new _2048.Block();
+            this.block8 = new _2048.Block();
+            this.block7 = new _2048.Block();
+            this.block6 = new _2048.Block();
+            this.block5 = new _2048.Block();
+            this.block4 = new _2048.Block();
+            this.block3 = new _2048.Block();
+            this.block2 = new _2048.Block();
+            this.block1 = new _2048.Block();
             this.lbl2048 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lblScore = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.lblScore = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.lblMeilleur = new System.Windows.Forms.Label();
@@ -62,250 +62,219 @@
             // pnlGrille
             // 
             this.pnlGrille.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(110)))), ((int)(((byte)(101)))));
-            this.pnlGrille.Controls.Add(this.bloc13);
-            this.pnlGrille.Controls.Add(this.bloc14);
-            this.pnlGrille.Controls.Add(this.bloc15);
-            this.pnlGrille.Controls.Add(this.bloc16);
-            this.pnlGrille.Controls.Add(this.bloc9);
-            this.pnlGrille.Controls.Add(this.bloc10);
-            this.pnlGrille.Controls.Add(this.bloc11);
-            this.pnlGrille.Controls.Add(this.bloc12);
-            this.pnlGrille.Controls.Add(this.bloc5);
-            this.pnlGrille.Controls.Add(this.bloc6);
-            this.pnlGrille.Controls.Add(this.bloc7);
-            this.pnlGrille.Controls.Add(this.bloc8);
-            this.pnlGrille.Controls.Add(this.bloc4);
-            this.pnlGrille.Controls.Add(this.bloc3);
-            this.pnlGrille.Controls.Add(this.bloc2);
-            this.pnlGrille.Controls.Add(this.bloc1);
+            this.pnlGrille.Controls.Add(this.block16);
+            this.pnlGrille.Controls.Add(this.block15);
+            this.pnlGrille.Controls.Add(this.block14);
+            this.pnlGrille.Controls.Add(this.block13);
+            this.pnlGrille.Controls.Add(this.block12);
+            this.pnlGrille.Controls.Add(this.block11);
+            this.pnlGrille.Controls.Add(this.block10);
+            this.pnlGrille.Controls.Add(this.block9);
+            this.pnlGrille.Controls.Add(this.block8);
+            this.pnlGrille.Controls.Add(this.block7);
+            this.pnlGrille.Controls.Add(this.block6);
+            this.pnlGrille.Controls.Add(this.block5);
+            this.pnlGrille.Controls.Add(this.block4);
+            this.pnlGrille.Controls.Add(this.block3);
+            this.pnlGrille.Controls.Add(this.block2);
+            this.pnlGrille.Controls.Add(this.block1);
             this.pnlGrille.Location = new System.Drawing.Point(0, 100);
             this.pnlGrille.Name = "pnlGrille";
             this.pnlGrille.Size = new System.Drawing.Size(480, 471);
             this.pnlGrille.TabIndex = 16;
             // 
-            // bloc13
+            // block16
             // 
-            this.bloc13.BackColor = System.Drawing.Color.DarkGray;
-            this.bloc13.Location = new System.Drawing.Point(366, 363);
-            this.bloc13.Moovable = false;
-            this.bloc13.Name = "bloc13";
-            this.bloc13.Size = new System.Drawing.Size(100, 100);
-            this.bloc13.TabIndex = 15;
-            this.bloc13.TabStop = false;
-            this.bloc13.Tag = "15";
-            this.bloc13.Valeur = 0;
-            this.bloc13.X = 3;
-            this.bloc13.Y = 3;
+            this.block16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(177)))), ((int)(((byte)(121)))));
+            this.block16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(242)))));
+            this.block16.Location = new System.Drawing.Point(366, 363);
+            this.block16.Moovable = true;
+            this.block16.Name = "block16";
+            this.block16.Size = new System.Drawing.Size(100, 100);
+            this.block16.TabIndex = 15;
+            this.block16.TabStop = false;
+            this.block16.Tag = "15";
+            this.block16.Valeur = 8;
             // 
-            // bloc14
+            // block15
             // 
-            this.bloc14.BackColor = System.Drawing.Color.DarkGray;
-            this.bloc14.Location = new System.Drawing.Point(249, 362);
-            this.bloc14.Moovable = false;
-            this.bloc14.Name = "bloc14";
-            this.bloc14.Size = new System.Drawing.Size(100, 100);
-            this.bloc14.TabIndex = 14;
-            this.bloc14.TabStop = false;
-            this.bloc14.Tag = "14";
-            this.bloc14.Valeur = 0;
-            this.bloc14.X = 2;
-            this.bloc14.Y = 3;
+            this.block15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(228)))), ((int)(((byte)(218)))));
+            this.block15.Location = new System.Drawing.Point(249, 362);
+            this.block15.Moovable = false;
+            this.block15.Name = "block15";
+            this.block15.Size = new System.Drawing.Size(100, 100);
+            this.block15.TabIndex = 14;
+            this.block15.TabStop = false;
+            this.block15.Tag = "14";
+            this.block15.Valeur = 0;
             // 
-            // bloc15
+            // block14
             // 
-            this.bloc15.BackColor = System.Drawing.Color.DarkGray;
-            this.bloc15.Location = new System.Drawing.Point(132, 362);
-            this.bloc15.Moovable = false;
-            this.bloc15.Name = "bloc15";
-            this.bloc15.Size = new System.Drawing.Size(100, 100);
-            this.bloc15.TabIndex = 13;
-            this.bloc15.TabStop = false;
-            this.bloc15.Tag = "13";
-            this.bloc15.Valeur = 0;
-            this.bloc15.X = 1;
-            this.bloc15.Y = 3;
+            this.block14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(228)))), ((int)(((byte)(218)))));
+            this.block14.Location = new System.Drawing.Point(132, 362);
+            this.block14.Moovable = false;
+            this.block14.Name = "block14";
+            this.block14.Size = new System.Drawing.Size(100, 100);
+            this.block14.TabIndex = 13;
+            this.block14.TabStop = false;
+            this.block14.Tag = "13";
+            this.block14.Valeur = 0;
             // 
-            // bloc16
+            // block13
             // 
-            this.bloc16.BackColor = System.Drawing.Color.DarkGray;
-            this.bloc16.Location = new System.Drawing.Point(15, 362);
-            this.bloc16.Moovable = false;
-            this.bloc16.Name = "bloc16";
-            this.bloc16.Size = new System.Drawing.Size(100, 100);
-            this.bloc16.TabIndex = 12;
-            this.bloc16.TabStop = false;
-            this.bloc16.Tag = "12";
-            this.bloc16.Valeur = 0;
-            this.bloc16.X = 0;
-            this.bloc16.Y = 3;
+            this.block13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(228)))), ((int)(((byte)(218)))));
+            this.block13.Location = new System.Drawing.Point(15, 362);
+            this.block13.Moovable = false;
+            this.block13.Name = "block13";
+            this.block13.Size = new System.Drawing.Size(100, 100);
+            this.block13.TabIndex = 12;
+            this.block13.TabStop = false;
+            this.block13.Tag = "12";
+            this.block13.Valeur = 0;
             // 
-            // bloc9
+            // block12
             // 
-            this.bloc9.BackColor = System.Drawing.Color.DarkGray;
-            this.bloc9.Location = new System.Drawing.Point(366, 245);
-            this.bloc9.Moovable = false;
-            this.bloc9.Name = "bloc9";
-            this.bloc9.Size = new System.Drawing.Size(100, 100);
-            this.bloc9.TabIndex = 11;
-            this.bloc9.TabStop = false;
-            this.bloc9.Tag = "11";
-            this.bloc9.Valeur = 0;
-            this.bloc9.X = 3;
-            this.bloc9.Y = 2;
+            this.block12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(228)))), ((int)(((byte)(218)))));
+            this.block12.Location = new System.Drawing.Point(366, 245);
+            this.block12.Moovable = false;
+            this.block12.Name = "block12";
+            this.block12.Size = new System.Drawing.Size(100, 100);
+            this.block12.TabIndex = 11;
+            this.block12.TabStop = false;
+            this.block12.Tag = "11";
+            this.block12.Valeur = 0;
             // 
-            // bloc10
+            // block11
             // 
-            this.bloc10.BackColor = System.Drawing.Color.DarkGray;
-            this.bloc10.Location = new System.Drawing.Point(249, 245);
-            this.bloc10.Moovable = false;
-            this.bloc10.Name = "bloc10";
-            this.bloc10.Size = new System.Drawing.Size(100, 100);
-            this.bloc10.TabIndex = 10;
-            this.bloc10.TabStop = false;
-            this.bloc10.Tag = "10";
-            this.bloc10.Valeur = 0;
-            this.bloc10.X = 2;
-            this.bloc10.Y = 2;
+            this.block11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(228)))), ((int)(((byte)(218)))));
+            this.block11.Location = new System.Drawing.Point(249, 245);
+            this.block11.Moovable = false;
+            this.block11.Name = "block11";
+            this.block11.Size = new System.Drawing.Size(100, 100);
+            this.block11.TabIndex = 10;
+            this.block11.TabStop = false;
+            this.block11.Tag = "10";
+            this.block11.Valeur = 0;
             // 
-            // bloc11
+            // block10
             // 
-            this.bloc11.BackColor = System.Drawing.Color.DarkGray;
-            this.bloc11.Location = new System.Drawing.Point(132, 245);
-            this.bloc11.Moovable = false;
-            this.bloc11.Name = "bloc11";
-            this.bloc11.Size = new System.Drawing.Size(100, 100);
-            this.bloc11.TabIndex = 9;
-            this.bloc11.TabStop = false;
-            this.bloc11.Tag = "9";
-            this.bloc11.Valeur = 0;
-            this.bloc11.X = 1;
-            this.bloc11.Y = 2;
+            this.block10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(228)))), ((int)(((byte)(218)))));
+            this.block10.Location = new System.Drawing.Point(132, 245);
+            this.block10.Moovable = false;
+            this.block10.Name = "block10";
+            this.block10.Size = new System.Drawing.Size(100, 100);
+            this.block10.TabIndex = 9;
+            this.block10.TabStop = false;
+            this.block10.Tag = "9";
+            this.block10.Valeur = 0;
             // 
-            // bloc12
+            // block9
             // 
-            this.bloc12.BackColor = System.Drawing.Color.DarkGray;
-            this.bloc12.Location = new System.Drawing.Point(15, 245);
-            this.bloc12.Moovable = false;
-            this.bloc12.Name = "bloc12";
-            this.bloc12.Size = new System.Drawing.Size(100, 100);
-            this.bloc12.TabIndex = 8;
-            this.bloc12.TabStop = false;
-            this.bloc12.Tag = "8";
-            this.bloc12.Valeur = 0;
-            this.bloc12.X = 0;
-            this.bloc12.Y = 2;
+            this.block9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(228)))), ((int)(((byte)(218)))));
+            this.block9.Location = new System.Drawing.Point(15, 245);
+            this.block9.Moovable = false;
+            this.block9.Name = "block9";
+            this.block9.Size = new System.Drawing.Size(100, 100);
+            this.block9.TabIndex = 8;
+            this.block9.TabStop = false;
+            this.block9.Tag = "8";
+            this.block9.Valeur = 0;
             // 
-            // bloc5
+            // block8
             // 
-            this.bloc5.BackColor = System.Drawing.Color.DarkGray;
-            this.bloc5.Location = new System.Drawing.Point(366, 128);
-            this.bloc5.Moovable = false;
-            this.bloc5.Name = "bloc5";
-            this.bloc5.Size = new System.Drawing.Size(100, 100);
-            this.bloc5.TabIndex = 7;
-            this.bloc5.TabStop = false;
-            this.bloc5.Tag = "7";
-            this.bloc5.Valeur = 0;
-            this.bloc5.X = 3;
-            this.bloc5.Y = 1;
+            this.block8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(228)))), ((int)(((byte)(218)))));
+            this.block8.Location = new System.Drawing.Point(366, 128);
+            this.block8.Moovable = false;
+            this.block8.Name = "block8";
+            this.block8.Size = new System.Drawing.Size(100, 100);
+            this.block8.TabIndex = 7;
+            this.block8.TabStop = false;
+            this.block8.Tag = "7";
+            this.block8.Valeur = 0;
             // 
-            // bloc6
+            // block7
             // 
-            this.bloc6.BackColor = System.Drawing.Color.DarkGray;
-            this.bloc6.Location = new System.Drawing.Point(249, 128);
-            this.bloc6.Moovable = false;
-            this.bloc6.Name = "bloc6";
-            this.bloc6.Size = new System.Drawing.Size(100, 100);
-            this.bloc6.TabIndex = 6;
-            this.bloc6.TabStop = false;
-            this.bloc6.Tag = "6";
-            this.bloc6.Valeur = 0;
-            this.bloc6.X = 2;
-            this.bloc6.Y = 1;
+            this.block7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(228)))), ((int)(((byte)(218)))));
+            this.block7.Location = new System.Drawing.Point(249, 128);
+            this.block7.Moovable = false;
+            this.block7.Name = "block7";
+            this.block7.Size = new System.Drawing.Size(100, 100);
+            this.block7.TabIndex = 6;
+            this.block7.TabStop = false;
+            this.block7.Tag = "6";
+            this.block7.Valeur = 0;
             // 
-            // bloc7
+            // block6
             // 
-            this.bloc7.BackColor = System.Drawing.Color.DarkGray;
-            this.bloc7.Location = new System.Drawing.Point(132, 128);
-            this.bloc7.Moovable = false;
-            this.bloc7.Name = "bloc7";
-            this.bloc7.Size = new System.Drawing.Size(100, 100);
-            this.bloc7.TabIndex = 5;
-            this.bloc7.TabStop = false;
-            this.bloc7.Tag = "5";
-            this.bloc7.Valeur = 0;
-            this.bloc7.X = 1;
-            this.bloc7.Y = 1;
+            this.block6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(228)))), ((int)(((byte)(218)))));
+            this.block6.Location = new System.Drawing.Point(132, 128);
+            this.block6.Moovable = false;
+            this.block6.Name = "block6";
+            this.block6.Size = new System.Drawing.Size(100, 100);
+            this.block6.TabIndex = 5;
+            this.block6.TabStop = false;
+            this.block6.Tag = "5";
+            this.block6.Valeur = 0;
             // 
-            // bloc8
+            // block5
             // 
-            this.bloc8.BackColor = System.Drawing.Color.DarkGray;
-            this.bloc8.Location = new System.Drawing.Point(15, 128);
-            this.bloc8.Moovable = false;
-            this.bloc8.Name = "bloc8";
-            this.bloc8.Size = new System.Drawing.Size(100, 100);
-            this.bloc8.TabIndex = 4;
-            this.bloc8.TabStop = false;
-            this.bloc8.Tag = "4";
-            this.bloc8.Valeur = 0;
-            this.bloc8.X = 0;
-            this.bloc8.Y = 1;
+            this.block5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(228)))), ((int)(((byte)(218)))));
+            this.block5.Location = new System.Drawing.Point(15, 128);
+            this.block5.Moovable = false;
+            this.block5.Name = "block5";
+            this.block5.Size = new System.Drawing.Size(100, 100);
+            this.block5.TabIndex = 4;
+            this.block5.TabStop = false;
+            this.block5.Tag = "4";
+            this.block5.Valeur = 0;
             // 
-            // bloc4
+            // block4
             // 
-            this.bloc4.BackColor = System.Drawing.Color.DarkGray;
-            this.bloc4.Location = new System.Drawing.Point(366, 11);
-            this.bloc4.Moovable = false;
-            this.bloc4.Name = "bloc4";
-            this.bloc4.Size = new System.Drawing.Size(100, 100);
-            this.bloc4.TabIndex = 3;
-            this.bloc4.TabStop = false;
-            this.bloc4.Tag = "3";
-            this.bloc4.Valeur = 0;
-            this.bloc4.X = 3;
-            this.bloc4.Y = 0;
+            this.block4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(228)))), ((int)(((byte)(218)))));
+            this.block4.Location = new System.Drawing.Point(366, 11);
+            this.block4.Moovable = false;
+            this.block4.Name = "block4";
+            this.block4.Size = new System.Drawing.Size(100, 100);
+            this.block4.TabIndex = 3;
+            this.block4.TabStop = false;
+            this.block4.Tag = "3";
+            this.block4.Valeur = 0;
             // 
-            // bloc3
+            // block3
             // 
-            this.bloc3.BackColor = System.Drawing.Color.DarkGray;
-            this.bloc3.Location = new System.Drawing.Point(249, 11);
-            this.bloc3.Moovable = false;
-            this.bloc3.Name = "bloc3";
-            this.bloc3.Size = new System.Drawing.Size(100, 100);
-            this.bloc3.TabIndex = 2;
-            this.bloc3.TabStop = false;
-            this.bloc3.Tag = "2";
-            this.bloc3.Valeur = 0;
-            this.bloc3.X = 2;
-            this.bloc3.Y = 0;
+            this.block3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(228)))), ((int)(((byte)(218)))));
+            this.block3.Location = new System.Drawing.Point(249, 11);
+            this.block3.Moovable = false;
+            this.block3.Name = "block3";
+            this.block3.Size = new System.Drawing.Size(100, 100);
+            this.block3.TabIndex = 2;
+            this.block3.TabStop = false;
+            this.block3.Tag = "2";
+            this.block3.Valeur = 0;
             // 
-            // bloc2
+            // block2
             // 
-            this.bloc2.BackColor = System.Drawing.Color.DarkGray;
-            this.bloc2.Location = new System.Drawing.Point(132, 11);
-            this.bloc2.Moovable = false;
-            this.bloc2.Name = "bloc2";
-            this.bloc2.Size = new System.Drawing.Size(100, 100);
-            this.bloc2.TabIndex = 1;
-            this.bloc2.TabStop = false;
-            this.bloc2.Tag = "1";
-            this.bloc2.Valeur = 0;
-            this.bloc2.X = 1;
-            this.bloc2.Y = 0;
+            this.block2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(228)))), ((int)(((byte)(218)))));
+            this.block2.Location = new System.Drawing.Point(132, 11);
+            this.block2.Moovable = false;
+            this.block2.Name = "block2";
+            this.block2.Size = new System.Drawing.Size(100, 100);
+            this.block2.TabIndex = 1;
+            this.block2.TabStop = false;
+            this.block2.Tag = "1";
+            this.block2.Valeur = 0;
             // 
-            // bloc1
+            // block1
             // 
-            this.bloc1.BackColor = System.Drawing.Color.DarkGray;
-            this.bloc1.Location = new System.Drawing.Point(15, 11);
-            this.bloc1.Moovable = false;
-            this.bloc1.Name = "bloc1";
-            this.bloc1.Size = new System.Drawing.Size(100, 100);
-            this.bloc1.TabIndex = 0;
-            this.bloc1.TabStop = false;
-            this.bloc1.Tag = "0";
-            this.bloc1.Valeur = 0;
-            this.bloc1.X = 0;
-            this.bloc1.Y = 0;
+            this.block1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(228)))), ((int)(((byte)(218)))));
+            this.block1.Location = new System.Drawing.Point(15, 11);
+            this.block1.Moovable = false;
+            this.block1.Name = "block1";
+            this.block1.Size = new System.Drawing.Size(100, 100);
+            this.block1.TabIndex = 0;
+            this.block1.TabStop = false;
+            this.block1.Tag = "0";
+            this.block1.Valeur = 0;
             // 
             // lbl2048
             // 
@@ -328,17 +297,6 @@
             this.panel1.Size = new System.Drawing.Size(97, 61);
             this.panel1.TabIndex = 16;
             // 
-            // lblScore
-            // 
-            this.lblScore.AutoSize = true;
-            this.lblScore.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblScore.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(228)))), ((int)(((byte)(218)))));
-            this.lblScore.Location = new System.Drawing.Point(21, 10);
-            this.lblScore.Name = "lblScore";
-            this.lblScore.Size = new System.Drawing.Size(55, 20);
-            this.lblScore.TabIndex = 18;
-            this.lblScore.Text = "SCORE";
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -349,6 +307,17 @@
             this.label1.Size = new System.Drawing.Size(22, 24);
             this.label1.TabIndex = 19;
             this.label1.Text = "0";
+            // 
+            // lblScore
+            // 
+            this.lblScore.AutoSize = true;
+            this.lblScore.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblScore.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(228)))), ((int)(((byte)(218)))));
+            this.lblScore.Location = new System.Drawing.Point(21, 10);
+            this.lblScore.Name = "lblScore";
+            this.lblScore.Size = new System.Drawing.Size(55, 20);
+            this.lblScore.TabIndex = 18;
+            this.lblScore.Text = "SCORE";
             // 
             // panel2
             // 
@@ -418,22 +387,22 @@
 
         #endregion
 
-        private Block bloc1;
-        private Block bloc2;
-        private Block bloc3;
-        private Block bloc4;
-        private Block bloc5;
-        private Block bloc6;
-        private Block bloc7;
-        private Block bloc8;
-        private Block bloc9;
-        private Block bloc10;
-        private Block bloc11;
-        private Block bloc12;
-        private Block bloc13;
-        private Block bloc14;
-        private Block bloc15;
-        private Block bloc16;
+        private Block block1;
+        private Block block2;
+        private Block block3;
+        private Block block4;
+        private Block block8;
+        private Block block7;
+        private Block block6;
+        private Block block5;
+        private Block block12;
+        private Block block11;
+        private Block block10;
+        private Block block9;
+        private Block block16;
+        private Block block15;
+        private Block block14;
+        private Block block13;
         private System.Windows.Forms.Panel pnlGrille;
         private System.Windows.Forms.Label lbl2048;
         private System.Windows.Forms.Panel panel1;
@@ -445,4 +414,3 @@
         private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
-
