@@ -42,61 +42,51 @@ namespace _2048
 
         public void moove(string direction, Block block)
         {
-            string facing = (direction == "up" || direction == "down") ? facing = "vertical" : facing = "horizontal";
-            int modifier = (direction == "up" || direction == "down") ? modifier = 4 : modifier = 1;
-            List<int> column = (direction == "up") ? column = firstLine : (direction == "left") ? column = firstColumn : (direction == "down") ? column = fourthLine : column = fourthColumn;
             if (block.Moovable)
             {
-                int tour = 0;
+                string facing = (direction == "up" || direction == "down") ? facing = "vertical" : facing = "horizontal";
+                int modifier = (direction == "up" || direction == "down") ? modifier = 4 : modifier = 1;
+                List<int> column = (direction == "up") ? column = firstLine : (direction == "left") ? column = firstColumn : (direction == "down") ? column = fourthLine : column = fourthColumn;
+
+                int lap = 0;
                 int tag = int.Parse(block.Tag.ToString());
                 if (direction == "up" || direction == "left")
                 {
                     while (!column.Contains(tag) && !getPreviousBlock(facing, getBlockByTag(tag)).Moovable)
                     {
                         tag -= modifier;
-                        tour++;
+                        lap++;
                     }
                 } else
                 {
                     while (!column.Contains(tag) && !getNextBlock(facing, getBlockByTag(tag)).Moovable)
                     {
                         tag += modifier;
-                        tour++;
+                        lap++;
                     }
                 }
                 Block newBlock = getBlockByTag(tag);
-                newBlock.Moovable = true;
                 newBlock.Valeur = block.Valeur;
                 ColorBlockByValue(newBlock, newBlock.Valeur);
-                Block previousBlock = (direction == "up" || direction == "left") ? previousBlock = getPreviousBlock(facing, newBlock) : previousBlock = getNextBlock(facing, newBlock);
-                if (newBlock.Valeur == previousBlock.Valeur && previousBlock != newBlock)
+                Block nearestBlock = (direction == "up" || direction == "left") ? nearestBlock = getPreviousBlock(facing, newBlock) : nearestBlock = getNextBlock(facing, newBlock);
+                if (newBlock.Valeur == nearestBlock.Valeur && nearestBlock != newBlock)
                 {
-                    ColorBlockByValue(previousBlock, previousBlock.Valeur * 2);
-                    previousBlock.Valeur *= 2;
-                    newBlock.Moovable = false;
+                    ColorBlockByValue(nearestBlock, nearestBlock.Valeur * 2);
+                    nearestBlock.Valeur *= 2;
                     newBlock.Valeur = 0;
-                    newBlock.BackColor = Color.DarkGray;
+                    newBlock.BackColor = Color.FromArgb(238, 228, 218);
                 }
-                if (tour > 0)
+                if (lap > 0)
                 {
-                    block.Moovable = false;
                     block.Valeur = 0;
-                    block.BackColor = Color.DarkGray;
+                    block.BackColor = Color.FromArgb(238, 228, 218);
                 }
             }
         }
 
         public Block getPreviousBlock(string type, Block block)
         {
-            int modifier;
-            if (type == "horizontal")
-            {
-                modifier = 1;
-            }
-            else
-            {
-                modifier = 4;
-            }
+            int modifier = (type == "horizontal") ? modifier = 1 : modifier = 4;
             if (getBlockByTag(int.Parse(block.Tag.ToString()) - modifier) == null)
             {
                 return block;
@@ -107,15 +97,7 @@ namespace _2048
 
         public Block getNextBlock(string type, Block block)
         {
-            int modifier;
-            if (type == "horizontal")
-            {
-                modifier = 1;
-            }
-            else
-            {
-                modifier = 4;
-            }
+            int modifier = (type == "horizontal") ? modifier = 1 : modifier = 4;
             if (getBlockByTag(int.Parse(block.Tag.ToString()) + modifier) == null)
             {
                 return block;
@@ -124,7 +106,7 @@ namespace _2048
 
         }
 
-        public void ColorBlockByValue(Block block, int value)
+        public static void ColorBlockByValue(Block block, int value)
         {
             switch (value)
             {
@@ -136,96 +118,60 @@ namespace _2048
                 case 64: block.BackColor = ColorTranslator.FromHtml("#f65e3b"); break;
                 default: block.BackColor = ColorTranslator.FromHtml("#edcf72"); break;
             }
-            if (value > 4) ColorTranslator.FromHtml("#f9f6f2");
+            if (value > 4) block.ForeColor = ColorTranslator.FromHtml("#f9f6f2");
             
 
+        }
+
+        private void addBlock()
+        {
+            bool found = false;
+            Random r = new Random();
+            foreach (Block block in pnlGrille.Controls.OfType<Block>().OrderBy(x => r.Next()))
+            {
+                if (!block.Moovable && !found)
+                {
+                    found = true;
+                    block.Valeur = 2;
+                    block.BackColor = Color.White;
+                }
+            }
         }
 
         private void frmPartie_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
             if (e.KeyCode == Keys.Right)
             {
-                foreach (int i in thirdColumn)
-                {
-                    Block block = getBlockByTag(i);
-                    moove("right", block);
-                }
-                foreach (int i in secondColumn)
-                {
-                    Block block = getBlockByTag(i);
-                    moove("right", block);
-                }
-                foreach (int i in firstColumn)
-                {
-                    Block block = getBlockByTag(i);
-                    moove("right", block);
-                }
+                foreach (int i in thirdColumn) moove("right", getBlockByTag(i));
+                foreach (int i in secondColumn) moove("right", getBlockByTag(i));       
+                foreach (int i in firstColumn) moove("right", getBlockByTag(i));
             }
             else if (e.KeyCode == Keys.Left)
             {
-                foreach (int i in secondColumn)
-                {
-                    Block block = getBlockByTag(i);
-                    moove("left", block);
-                }
-                foreach (int i in thirdColumn)
-                {
-                    Block block = getBlockByTag(i);
-                    moove("left", block);
-                }
-                foreach (int i in fourthColumn)
-                {
-                    Block block = getBlockByTag(i);
-                    moove("left", block);
-                }
+                foreach (int i in secondColumn) moove("left", getBlockByTag(i));
+                foreach (int i in thirdColumn) moove("left", getBlockByTag(i));
+                foreach (int i in fourthColumn) moove("left", getBlockByTag(i));
             }
             else if (e.KeyCode == Keys.Down)
             {
-                foreach (int i in thirdLine)
-                {
-                    Block block = getBlockByTag(i);
-                    moove("down", block);
-                }
-                foreach (int i in secondLine)
-                {
-                    Block block = getBlockByTag(i);
-                    moove("down", block);
-                }
-                foreach (int i in firstLine)
-                {
-                    Block block = getBlockByTag(i);
-                    moove("down", block);
-                }
+                foreach (int i in thirdLine) moove("down", getBlockByTag(i));
+                foreach (int i in secondLine) moove("down", getBlockByTag(i));
+                foreach (int i in firstLine) moove("down", getBlockByTag(i));
             }
             else if (e.KeyCode == Keys.Up)
             {
-                foreach (int i in secondLine)
-                {
-                    Block block = getBlockByTag(i);
-                    moove("up", block);
-                }
-                foreach (int i in thirdLine)
-                {
-                    Block block = getBlockByTag(i);
-                    moove("up", block);
-                }
-                foreach (int i in fourthLine)
-                {
-                    Block block = getBlockByTag(i);
-                    moove("up", block);
-                }
+                foreach (int i in secondLine) moove("up", getBlockByTag(i));
+                foreach (int i in thirdLine) moove("up", getBlockByTag(i));
+                foreach (int i in fourthLine) moove("up", getBlockByTag(i));
             }
-            bool found = false;
-            foreach(Block block in pnlGrille.Controls.OfType<Block>())
+            addBlock();
+        }
+
+        private void frmPartie_Load(object sender, EventArgs e)
+        {
+            for(int i = 0;i<2;i++)
             {
-                if(!block.Moovable && !found)
-                {
-          
-                    found = true;
-                    block.Moovable = true;
-                    block.Valeur = 2;
-                    block.BackColor = Color.White;
-                }
+                addBlock();
             }
         }
     }
