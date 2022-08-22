@@ -28,7 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPartie));
             this.pnlGrille = new System.Windows.Forms.Panel();
+            this.lbl2048 = new System.Windows.Forms.Label();
+            this.pnlScore = new System.Windows.Forms.Panel();
+            this.lblScore = new System.Windows.Forms.Label();
+            this.lblTitreScore = new System.Windows.Forms.Label();
+            this.pnlRecord = new System.Windows.Forms.Panel();
+            this.lblRecord = new System.Windows.Forms.Label();
+            this.lblTitreRecord = new System.Windows.Forms.Label();
+            this.pbxRetry = new System.Windows.Forms.PictureBox();
             this.block16 = new _2048.Block();
             this.block15 = new _2048.Block();
             this.block14 = new _2048.Block();
@@ -45,18 +54,10 @@
             this.block3 = new _2048.Block();
             this.block2 = new _2048.Block();
             this.block1 = new _2048.Block();
-            this.lbl2048 = new System.Windows.Forms.Label();
-            this.pnlScore = new System.Windows.Forms.Panel();
-            this.lblScore = new System.Windows.Forms.Label();
-            this.lblTitreScore = new System.Windows.Forms.Label();
-            this.pnlRecord = new System.Windows.Forms.Panel();
-            this.lblRecord = new System.Windows.Forms.Label();
-            this.lblTitreRecord = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlGrille.SuspendLayout();
             this.pnlScore.SuspendLayout();
             this.pnlRecord.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxRetry)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlGrille
@@ -82,199 +83,6 @@
             this.pnlGrille.Name = "pnlGrille";
             this.pnlGrille.Size = new System.Drawing.Size(480, 471);
             this.pnlGrille.TabIndex = 16;
-            // 
-            // block16
-            // 
-            this.block16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(228)))), ((int)(((byte)(218)))));
-            this.block16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(242)))));
-            this.block16.Location = new System.Drawing.Point(366, 363);
-            this.block16.Moovable = false;
-            this.block16.Name = "block16";
-            this.block16.Size = new System.Drawing.Size(100, 100);
-            this.block16.TabIndex = 15;
-            this.block16.TabStop = false;
-            this.block16.Tag = "15";
-            this.block16.Valeur = 0;
-            // 
-            // block15
-            // 
-            this.block15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(228)))), ((int)(((byte)(218)))));
-            this.block15.Location = new System.Drawing.Point(249, 362);
-            this.block15.Moovable = false;
-            this.block15.Name = "block15";
-            this.block15.Size = new System.Drawing.Size(100, 100);
-            this.block15.TabIndex = 14;
-            this.block15.TabStop = false;
-            this.block15.Tag = "14";
-            this.block15.Valeur = 0;
-            // 
-            // block14
-            // 
-            this.block14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(228)))), ((int)(((byte)(218)))));
-            this.block14.Location = new System.Drawing.Point(132, 362);
-            this.block14.Moovable = false;
-            this.block14.Name = "block14";
-            this.block14.Size = new System.Drawing.Size(100, 100);
-            this.block14.TabIndex = 13;
-            this.block14.TabStop = false;
-            this.block14.Tag = "13";
-            this.block14.Valeur = 0;
-            // 
-            // block13
-            // 
-            this.block13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(228)))), ((int)(((byte)(218)))));
-            this.block13.Location = new System.Drawing.Point(15, 362);
-            this.block13.Moovable = false;
-            this.block13.Name = "block13";
-            this.block13.Size = new System.Drawing.Size(100, 100);
-            this.block13.TabIndex = 12;
-            this.block13.TabStop = false;
-            this.block13.Tag = "12";
-            this.block13.Valeur = 0;
-            // 
-            // block12
-            // 
-            this.block12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(228)))), ((int)(((byte)(218)))));
-            this.block12.Location = new System.Drawing.Point(366, 245);
-            this.block12.Moovable = false;
-            this.block12.Name = "block12";
-            this.block12.Size = new System.Drawing.Size(100, 100);
-            this.block12.TabIndex = 11;
-            this.block12.TabStop = false;
-            this.block12.Tag = "11";
-            this.block12.Valeur = 0;
-            // 
-            // block11
-            // 
-            this.block11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(228)))), ((int)(((byte)(218)))));
-            this.block11.Location = new System.Drawing.Point(249, 245);
-            this.block11.Moovable = false;
-            this.block11.Name = "block11";
-            this.block11.Size = new System.Drawing.Size(100, 100);
-            this.block11.TabIndex = 10;
-            this.block11.TabStop = false;
-            this.block11.Tag = "10";
-            this.block11.Valeur = 0;
-            // 
-            // block10
-            // 
-            this.block10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(228)))), ((int)(((byte)(218)))));
-            this.block10.Location = new System.Drawing.Point(132, 245);
-            this.block10.Moovable = false;
-            this.block10.Name = "block10";
-            this.block10.Size = new System.Drawing.Size(100, 100);
-            this.block10.TabIndex = 9;
-            this.block10.TabStop = false;
-            this.block10.Tag = "9";
-            this.block10.Valeur = 0;
-            // 
-            // block9
-            // 
-            this.block9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(228)))), ((int)(((byte)(218)))));
-            this.block9.Location = new System.Drawing.Point(15, 245);
-            this.block9.Moovable = false;
-            this.block9.Name = "block9";
-            this.block9.Size = new System.Drawing.Size(100, 100);
-            this.block9.TabIndex = 8;
-            this.block9.TabStop = false;
-            this.block9.Tag = "8";
-            this.block9.Valeur = 0;
-            // 
-            // block8
-            // 
-            this.block8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(228)))), ((int)(((byte)(218)))));
-            this.block8.Location = new System.Drawing.Point(366, 128);
-            this.block8.Moovable = false;
-            this.block8.Name = "block8";
-            this.block8.Size = new System.Drawing.Size(100, 100);
-            this.block8.TabIndex = 7;
-            this.block8.TabStop = false;
-            this.block8.Tag = "7";
-            this.block8.Valeur = 0;
-            // 
-            // block7
-            // 
-            this.block7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(228)))), ((int)(((byte)(218)))));
-            this.block7.Location = new System.Drawing.Point(249, 128);
-            this.block7.Moovable = false;
-            this.block7.Name = "block7";
-            this.block7.Size = new System.Drawing.Size(100, 100);
-            this.block7.TabIndex = 6;
-            this.block7.TabStop = false;
-            this.block7.Tag = "6";
-            this.block7.Valeur = 0;
-            // 
-            // block6
-            // 
-            this.block6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(228)))), ((int)(((byte)(218)))));
-            this.block6.Location = new System.Drawing.Point(132, 128);
-            this.block6.Moovable = false;
-            this.block6.Name = "block6";
-            this.block6.Size = new System.Drawing.Size(100, 100);
-            this.block6.TabIndex = 5;
-            this.block6.TabStop = false;
-            this.block6.Tag = "5";
-            this.block6.Valeur = 0;
-            // 
-            // block5
-            // 
-            this.block5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(228)))), ((int)(((byte)(218)))));
-            this.block5.Location = new System.Drawing.Point(15, 128);
-            this.block5.Moovable = false;
-            this.block5.Name = "block5";
-            this.block5.Size = new System.Drawing.Size(100, 100);
-            this.block5.TabIndex = 4;
-            this.block5.TabStop = false;
-            this.block5.Tag = "4";
-            this.block5.Valeur = 0;
-            // 
-            // block4
-            // 
-            this.block4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(228)))), ((int)(((byte)(218)))));
-            this.block4.Location = new System.Drawing.Point(366, 11);
-            this.block4.Moovable = false;
-            this.block4.Name = "block4";
-            this.block4.Size = new System.Drawing.Size(100, 100);
-            this.block4.TabIndex = 3;
-            this.block4.TabStop = false;
-            this.block4.Tag = "3";
-            this.block4.Valeur = 0;
-            // 
-            // block3
-            // 
-            this.block3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(228)))), ((int)(((byte)(218)))));
-            this.block3.Location = new System.Drawing.Point(249, 11);
-            this.block3.Moovable = false;
-            this.block3.Name = "block3";
-            this.block3.Size = new System.Drawing.Size(100, 100);
-            this.block3.TabIndex = 2;
-            this.block3.TabStop = false;
-            this.block3.Tag = "2";
-            this.block3.Valeur = 0;
-            // 
-            // block2
-            // 
-            this.block2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(228)))), ((int)(((byte)(218)))));
-            this.block2.Location = new System.Drawing.Point(132, 11);
-            this.block2.Moovable = false;
-            this.block2.Name = "block2";
-            this.block2.Size = new System.Drawing.Size(100, 100);
-            this.block2.TabIndex = 1;
-            this.block2.TabStop = false;
-            this.block2.Tag = "1";
-            this.block2.Valeur = 0;
-            // 
-            // block1
-            // 
-            this.block1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(228)))), ((int)(((byte)(218)))));
-            this.block1.Location = new System.Drawing.Point(15, 11);
-            this.block1.Moovable = false;
-            this.block1.Name = "block1";
-            this.block1.Size = new System.Drawing.Size(100, 100);
-            this.block1.TabIndex = 0;
-            this.block1.TabStop = false;
-            this.block1.Tag = "0";
-            this.block1.Valeur = 0;
             // 
             // lbl2048
             // 
@@ -352,27 +160,237 @@
             this.lblTitreRecord.Text = "MEILLEUR";
             this.lblTitreRecord.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pictureBox1
+            // pbxRetry
             // 
-            this.pictureBox1.Image = global::_2048.Properties.Resources.retry;
-            this.pictureBox1.Location = new System.Drawing.Point(414, 28);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(54, 50);
-            this.pictureBox1.TabIndex = 21;
-            this.pictureBox1.TabStop = false;
+            this.pbxRetry.Image = global::_2048.Properties.Resources.retry;
+            this.pbxRetry.Location = new System.Drawing.Point(414, 28);
+            this.pbxRetry.Name = "pbxRetry";
+            this.pbxRetry.Size = new System.Drawing.Size(54, 50);
+            this.pbxRetry.TabIndex = 21;
+            this.pbxRetry.TabStop = false;
+            this.pbxRetry.Click += new System.EventHandler(this.pbxRetry_Click);
+            // 
+            // block16
+            // 
+            this.block16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(228)))), ((int)(((byte)(218)))));
+            this.block16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(242)))));
+            this.block16.Location = new System.Drawing.Point(366, 363);
+            this.block16.Moovable = false;
+            this.block16.Name = "block16";
+            this.block16.Size = new System.Drawing.Size(100, 100);
+            this.block16.TabIndex = 15;
+            this.block16.TabStop = false;
+            this.block16.Tag = "15";
+            this.block16.Valeur = 0;
+            // 
+            // block15
+            // 
+            this.block15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(228)))), ((int)(((byte)(218)))));
+            this.block15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(242)))));
+            this.block15.Location = new System.Drawing.Point(249, 362);
+            this.block15.Moovable = false;
+            this.block15.Name = "block15";
+            this.block15.Size = new System.Drawing.Size(100, 100);
+            this.block15.TabIndex = 14;
+            this.block15.TabStop = false;
+            this.block15.Tag = "14";
+            this.block15.Valeur = 0;
+            // 
+            // block14
+            // 
+            this.block14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(228)))), ((int)(((byte)(218)))));
+            this.block14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(242)))));
+            this.block14.Location = new System.Drawing.Point(132, 362);
+            this.block14.Moovable = false;
+            this.block14.Name = "block14";
+            this.block14.Size = new System.Drawing.Size(100, 100);
+            this.block14.TabIndex = 13;
+            this.block14.TabStop = false;
+            this.block14.Tag = "13";
+            this.block14.Valeur = 0;
+            // 
+            // block13
+            // 
+            this.block13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(228)))), ((int)(((byte)(218)))));
+            this.block13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(242)))));
+            this.block13.Location = new System.Drawing.Point(15, 362);
+            this.block13.Moovable = false;
+            this.block13.Name = "block13";
+            this.block13.Size = new System.Drawing.Size(100, 100);
+            this.block13.TabIndex = 12;
+            this.block13.TabStop = false;
+            this.block13.Tag = "12";
+            this.block13.Valeur = 0;
+            // 
+            // block12
+            // 
+            this.block12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(228)))), ((int)(((byte)(218)))));
+            this.block12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(242)))));
+            this.block12.Location = new System.Drawing.Point(366, 245);
+            this.block12.Moovable = false;
+            this.block12.Name = "block12";
+            this.block12.Size = new System.Drawing.Size(100, 100);
+            this.block12.TabIndex = 11;
+            this.block12.TabStop = false;
+            this.block12.Tag = "11";
+            this.block12.Valeur = 0;
+            // 
+            // block11
+            // 
+            this.block11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(228)))), ((int)(((byte)(218)))));
+            this.block11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(242)))));
+            this.block11.Location = new System.Drawing.Point(249, 245);
+            this.block11.Moovable = false;
+            this.block11.Name = "block11";
+            this.block11.Size = new System.Drawing.Size(100, 100);
+            this.block11.TabIndex = 10;
+            this.block11.TabStop = false;
+            this.block11.Tag = "10";
+            this.block11.Valeur = 0;
+            // 
+            // block10
+            // 
+            this.block10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(228)))), ((int)(((byte)(218)))));
+            this.block10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(242)))));
+            this.block10.Location = new System.Drawing.Point(132, 245);
+            this.block10.Moovable = false;
+            this.block10.Name = "block10";
+            this.block10.Size = new System.Drawing.Size(100, 100);
+            this.block10.TabIndex = 9;
+            this.block10.TabStop = false;
+            this.block10.Tag = "9";
+            this.block10.Valeur = 0;
+            // 
+            // block9
+            // 
+            this.block9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(228)))), ((int)(((byte)(218)))));
+            this.block9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(242)))));
+            this.block9.Location = new System.Drawing.Point(15, 245);
+            this.block9.Moovable = false;
+            this.block9.Name = "block9";
+            this.block9.Size = new System.Drawing.Size(100, 100);
+            this.block9.TabIndex = 8;
+            this.block9.TabStop = false;
+            this.block9.Tag = "8";
+            this.block9.Valeur = 0;
+            // 
+            // block8
+            // 
+            this.block8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(228)))), ((int)(((byte)(218)))));
+            this.block8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(242)))));
+            this.block8.Location = new System.Drawing.Point(366, 128);
+            this.block8.Moovable = false;
+            this.block8.Name = "block8";
+            this.block8.Size = new System.Drawing.Size(100, 100);
+            this.block8.TabIndex = 7;
+            this.block8.TabStop = false;
+            this.block8.Tag = "7";
+            this.block8.Valeur = 0;
+            // 
+            // block7
+            // 
+            this.block7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(228)))), ((int)(((byte)(218)))));
+            this.block7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(242)))));
+            this.block7.Location = new System.Drawing.Point(249, 128);
+            this.block7.Moovable = false;
+            this.block7.Name = "block7";
+            this.block7.Size = new System.Drawing.Size(100, 100);
+            this.block7.TabIndex = 6;
+            this.block7.TabStop = false;
+            this.block7.Tag = "6";
+            this.block7.Valeur = 0;
+            // 
+            // block6
+            // 
+            this.block6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(228)))), ((int)(((byte)(218)))));
+            this.block6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(242)))));
+            this.block6.Location = new System.Drawing.Point(132, 128);
+            this.block6.Moovable = false;
+            this.block6.Name = "block6";
+            this.block6.Size = new System.Drawing.Size(100, 100);
+            this.block6.TabIndex = 5;
+            this.block6.TabStop = false;
+            this.block6.Tag = "5";
+            this.block6.Valeur = 0;
+            // 
+            // block5
+            // 
+            this.block5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(228)))), ((int)(((byte)(218)))));
+            this.block5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(242)))));
+            this.block5.Location = new System.Drawing.Point(15, 128);
+            this.block5.Moovable = false;
+            this.block5.Name = "block5";
+            this.block5.Size = new System.Drawing.Size(100, 100);
+            this.block5.TabIndex = 4;
+            this.block5.TabStop = false;
+            this.block5.Tag = "4";
+            this.block5.Valeur = 0;
+            // 
+            // block4
+            // 
+            this.block4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(228)))), ((int)(((byte)(218)))));
+            this.block4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(242)))));
+            this.block4.Location = new System.Drawing.Point(366, 11);
+            this.block4.Moovable = false;
+            this.block4.Name = "block4";
+            this.block4.Size = new System.Drawing.Size(100, 100);
+            this.block4.TabIndex = 3;
+            this.block4.TabStop = false;
+            this.block4.Tag = "3";
+            this.block4.Valeur = 0;
+            // 
+            // block3
+            // 
+            this.block3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(228)))), ((int)(((byte)(218)))));
+            this.block3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(242)))));
+            this.block3.Location = new System.Drawing.Point(249, 11);
+            this.block3.Moovable = false;
+            this.block3.Name = "block3";
+            this.block3.Size = new System.Drawing.Size(100, 100);
+            this.block3.TabIndex = 2;
+            this.block3.TabStop = false;
+            this.block3.Tag = "2";
+            this.block3.Valeur = 0;
+            // 
+            // block2
+            // 
+            this.block2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(228)))), ((int)(((byte)(218)))));
+            this.block2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(242)))));
+            this.block2.Location = new System.Drawing.Point(132, 11);
+            this.block2.Moovable = false;
+            this.block2.Name = "block2";
+            this.block2.Size = new System.Drawing.Size(100, 100);
+            this.block2.TabIndex = 1;
+            this.block2.TabStop = false;
+            this.block2.Tag = "1";
+            this.block2.Valeur = 0;
+            // 
+            // block1
+            // 
+            this.block1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(228)))), ((int)(((byte)(218)))));
+            this.block1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(242)))));
+            this.block1.Location = new System.Drawing.Point(15, 11);
+            this.block1.Moovable = false;
+            this.block1.Name = "block1";
+            this.block1.Size = new System.Drawing.Size(100, 100);
+            this.block1.TabIndex = 0;
+            this.block1.TabStop = false;
+            this.block1.Tag = "0";
+            this.block1.Valeur = 0;
             // 
             // frmPartie
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(480, 571);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pbxRetry);
             this.Controls.Add(this.pnlRecord);
             this.Controls.Add(this.pnlScore);
             this.Controls.Add(this.lbl2048);
             this.Controls.Add(this.pnlGrille);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmPartie";
-            this.Text = "Form1";
+            this.Text = "Le jeu du 2048";
             this.Load += new System.EventHandler(this.frmPartie_Load);
             this.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.frmPartie_PreviewKeyDown);
             this.pnlGrille.ResumeLayout(false);
@@ -380,7 +398,7 @@
             this.pnlScore.PerformLayout();
             this.pnlRecord.ResumeLayout(false);
             this.pnlRecord.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxRetry)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -412,6 +430,6 @@
         private System.Windows.Forms.Panel pnlRecord;
         private System.Windows.Forms.Label lblRecord;
         private System.Windows.Forms.Label lblTitreRecord;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pbxRetry;
     }
 }

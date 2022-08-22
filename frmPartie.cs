@@ -106,6 +106,19 @@ namespace _2048
 
         }
 
+        private void startNewGame()
+        {
+            foreach(Block block in pnlGrille.Controls.OfType<Block>())
+            {
+                block.Valeur = 0;
+            }
+            lblScore.Text = "0";
+            for (int i = 0; i < 2; i++)
+            {
+                addBlock();
+            }
+        }
+
         private void addBlock()
         {
             bool found = false;
@@ -145,6 +158,9 @@ namespace _2048
                 foreach (int i in secondLine) moove("up", getBlockByTag(i));
                 foreach (int i in thirdLine) moove("up", getBlockByTag(i));
                 foreach (int i in fourthLine) moove("up", getBlockByTag(i));
+            } else
+            {
+                return;
             }
             addBlock();
         }
@@ -156,10 +172,12 @@ namespace _2048
             lblScore.Location = new Point((pnlScore.Width - lblScore.Width) / 2, lblTitreScore.Location.Y+20);
             lblRecord.Location = new Point((pnlRecord.Width - lblRecord.Width) / 2, lblTitreRecord.Location.Y+20);
 
-            for (int i = 0;i<2;i++)
-            {
-                addBlock();
-            }
+            startNewGame();
+        }
+
+        private void pbxRetry_Click(object sender, EventArgs e)
+        {
+            if(MessageBox.Show("Voulez-vous vraiment commencer une nouvelle partie ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) startNewGame();
         }
     }
 }
