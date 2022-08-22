@@ -85,16 +85,16 @@
             // 
             // block16
             // 
-            this.block16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(177)))), ((int)(((byte)(121)))));
+            this.block16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(228)))), ((int)(((byte)(218)))));
             this.block16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(246)))), ((int)(((byte)(242)))));
             this.block16.Location = new System.Drawing.Point(366, 363);
-            this.block16.Moovable = true;
+            this.block16.Moovable = false;
             this.block16.Name = "block16";
             this.block16.Size = new System.Drawing.Size(100, 100);
             this.block16.TabIndex = 15;
             this.block16.TabStop = false;
             this.block16.Tag = "15";
-            this.block16.Valeur = 8;
+            this.block16.Valeur = 0;
             // 
             // block15
             // 
