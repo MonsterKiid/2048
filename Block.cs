@@ -14,7 +14,6 @@ namespace _2048
     {
         private int valeur = 0;
         private bool moovable = false;
-
         public Block()
         {
             InitializeComponent();
@@ -28,7 +27,7 @@ namespace _2048
             }
             set
             {
-                if(value == 0)
+                if (value == 0)
                 {
                     lblValeur.Visible = false;
                     this.Moovable = false;
