@@ -373,6 +373,7 @@
             this.Controls.Add(this.pnlGrille);
             this.Name = "frmPartie";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.frmPartie_Load);
             this.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.frmPartie_PreviewKeyDown);
             this.pnlGrille.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
