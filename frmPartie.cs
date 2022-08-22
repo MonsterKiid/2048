@@ -28,99 +28,96 @@ namespace _2048
             InitializeComponent();
         }
 
-        public Block getBlockByTag(int tag)
+        /**
+         * Cette fonction sert à récupérer le mouvement des blocs selon la touche pressée
+         * 
+         * On va d'abord bouger l'avant-dernière colonne (inutile de bouger la dernière car rien ne va changer == bordure)
+         * Puis on va bouger la précédente, et enfin on va bouger la précédente
+         * 
+         * Cette technique permet que les blocs fusionnent dans le bon ordre.
+         */
+        private void frmPartie_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
-            foreach (Block block in pnlGrille.Controls.OfType<Block>())
+            // Si le joueur appuie sur la flèche de droite
+            if (e.KeyCode == Keys.Right)
             {
-                if (int.Parse(block.Tag.ToString()) == tag)
-                {
-                    return block;
-                }
+                foreach (int i in thirdColumn) moove("right", getBlockByTag(i));
+                foreach (int i in secondColumn) moove("right", getBlockByTag(i));
+                foreach (int i in firstColumn) moove("right", getBlockByTag(i));
             }
-            return null;
+            // Si le joueur appuie sur la flèche de gauche
+            else if (e.KeyCode == Keys.Left)
+            {
+                foreach (int i in secondColumn) moove("left", getBlockByTag(i));
+                foreach (int i in thirdColumn) moove("left", getBlockByTag(i));
+                foreach (int i in fourthColumn) moove("left", getBlockByTag(i));
+            }
+            // Si le joueur appuie sur la flèche du bas
+            else if (e.KeyCode == Keys.Down)
+            {
+                foreach (int i in thirdLine) moove("down", getBlockByTag(i));
+                foreach (int i in secondLine) moove("down", getBlockByTag(i));
+                foreach (int i in firstLine) moove("down", getBlockByTag(i));
+            }
+            // Si le joueur appuie sur la flèche du haut
+            else if (e.KeyCode == Keys.Up)
+            {
+                foreach (int i in secondLine) moove("up", getBlockByTag(i));
+                foreach (int i in thirdLine) moove("up", getBlockByTag(i));
+                foreach (int i in fourthLine) moove("up", getBlockByTag(i));
+            }
+            // Si le joueur appuie sur une autre touche, on bloque l'ajout d'un autre bloc
+            else
+            {
+                return;
+            }
+            addBlock();
         }
 
-        public void moove(string direction, Block block)
+        /*
+         * Cette fonction est appelée lors du chargement du formulaire
+         */
+        private void frmPartie_Load(object sender, EventArgs e)
         {
-            if (block.Moovable)
-            {
-                string facing = (direction == "up" || direction == "down") ? facing = "vertical" : facing = "horizontal";
-                int modifier = (direction == "up" || direction == "down") ? modifier = 4 : modifier = 1;
-                List<int> column = (direction == "up") ? column = firstLine : (direction == "left") ? column = firstColumn : (direction == "down") ? column = fourthLine : column = fourthColumn;
-
-                int lap = 0;
-                int tag = int.Parse(block.Tag.ToString());
-                if (direction == "up" || direction == "left")
-                {
-                    while (!column.Contains(tag) && !getPreviousBlock(facing, getBlockByTag(tag)).Moovable)
-                    {
-                        tag -= modifier;
-                        lap++;
-                    }
-                } else
-                {
-                    while (!column.Contains(tag) && !getNextBlock(facing, getBlockByTag(tag)).Moovable)
-                    {
-                        tag += modifier;
-                        lap++;
-                    }
-                }
-                Block newBlock = getBlockByTag(tag);
-                newBlock.Valeur = block.Valeur;
-                Block nearestBlock = (direction == "up" || direction == "left") ? nearestBlock = getPreviousBlock(facing, newBlock) : nearestBlock = getNextBlock(facing, newBlock);
-                if (newBlock.Valeur == nearestBlock.Valeur && nearestBlock != newBlock)
-                {
-                    nearestBlock.Valeur *= 2;
-                    lblScore.Text = (int.Parse(lblScore.Text) + nearestBlock.Valeur).ToString();
-                    lblScore.Location = new Point((pnlScore.Width - lblScore.Width)/2, lblTitreScore.Location.Y+20);
-                    newBlock.Valeur = 0;
-                    newBlock.BackColor = Color.FromArgb(238, 228, 218);
-                }
-                if (lap > 0)
-                {
-                    block.Valeur = 0;
-                    block.BackColor = Color.FromArgb(238, 228, 218);
-                }
-            }
+            startNewGame();
         }
 
-        public Block getPreviousBlock(string type, Block block)
-        {
-            int modifier = (type == "horizontal") ? modifier = 1 : modifier = 4;
-            if (getBlockByTag(int.Parse(block.Tag.ToString()) - modifier) == null)
-            {
-                return block;
-            }
-            return getBlockByTag(int.Parse(block.Tag.ToString()) - modifier);
-
-        }
-
-        public Block getNextBlock(string type, Block block)
-        {
-            int modifier = (type == "horizontal") ? modifier = 1 : modifier = 4;
-            if (getBlockByTag(int.Parse(block.Tag.ToString()) + modifier) == null)
-            {
-                return block;
-            }
-            return getBlockByTag(int.Parse(block.Tag.ToString()) + modifier);
-
-        }
-
+        /*
+         * Cette fonction permet de commencer une nouvelle partie
+         * 
+         * On va mettre les valeurs de tous les blocs ainsi que le score à 0
+         * Puis on va désigner de nouveaux blocs à une position aléatoire 
+           qui permettront de commencer la partie
+        */
         private void startNewGame()
         {
-            foreach(Block block in pnlGrille.Controls.OfType<Block>())
+            // Mise du score à 0
+            lblScore.Text = "0";
+
+            // Réinitialisation des blocs
+            foreach (Block block in pnlGrille.Controls.OfType<Block>())
             {
                 block.Valeur = 0;
             }
-            lblScore.Text = "0";
+
+            // Ajout de deux nouveaux blocs
             for (int i = 0; i < 2; i++)
             {
                 addBlock();
             }
         }
 
+        /*
+         * Cette fonction permet d'ajouter un nouveau bloc bougeable à la grille
+         * Pour se faire on va prendre un bloc aléatoirement dans les Controls et
+           on va vérifier s'il est bougeable
+
+         * Si oui, on l'ajoute avec la valeur "2"
+         * Si non, on boucle
+         */
         private void addBlock()
         {
+            // Cette variable permet d'arrêter l'assignation d'un bloc dès qu'un est trouvé
             bool found = false;
             Random r = new Random();
             foreach (Block block in pnlGrille.Controls.OfType<Block>().OrderBy(x => r.Next()))
@@ -133,48 +130,123 @@ namespace _2048
             }
         }
 
-        private void frmPartie_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        /*
+         * Cette fonction permet d'obtenir le bloc selon le tag qui lui est assigné
+         * Si le tag passé en paramètre ne correspond à aucun bloc, alors on retourne null
+         */
+        public Block getBlockByTag(int tag)
         {
-            if (e.KeyCode == Keys.Right)
+            foreach (Block block in pnlGrille.Controls.OfType<Block>())
             {
-                foreach (int i in thirdColumn) moove("right", getBlockByTag(i));
-                foreach (int i in secondColumn) moove("right", getBlockByTag(i));       
-                foreach (int i in firstColumn) moove("right", getBlockByTag(i));
+                if (int.Parse(block.Tag.ToString()) == tag)
+                {
+                    return block;
+                }
             }
-            else if (e.KeyCode == Keys.Left)
-            {
-                foreach (int i in secondColumn) moove("left", getBlockByTag(i));
-                foreach (int i in thirdColumn) moove("left", getBlockByTag(i));
-                foreach (int i in fourthColumn) moove("left", getBlockByTag(i));
-            }
-            else if (e.KeyCode == Keys.Down)
-            {
-                foreach (int i in thirdLine) moove("down", getBlockByTag(i));
-                foreach (int i in secondLine) moove("down", getBlockByTag(i));
-                foreach (int i in firstLine) moove("down", getBlockByTag(i));
-            }
-            else if (e.KeyCode == Keys.Up)
-            {
-                foreach (int i in secondLine) moove("up", getBlockByTag(i));
-                foreach (int i in thirdLine) moove("up", getBlockByTag(i));
-                foreach (int i in fourthLine) moove("up", getBlockByTag(i));
-            } else
-            {
-                return;
-            }
-            addBlock();
+            return null;
         }
 
-        private void frmPartie_Load(object sender, EventArgs e)
+        /*
+         * Cette fonction matérialise les déplacements des blocs selon une direction
+         * 
+         * La direction aura un impact sur 
+         *  - le facing (est-ce que mes blocs voisins sont à la verticale ou à l'horizontale)
+         *  - le modifier (qui nous permettra d'incrémenter le tag et de passer au bloc suivant)
+         *  - la column (qui est la dernière colonne de la direction)
+         *  - le nearestBlock (qui est le bloc voisin le plus proche selon le facing)
+         */
+        public void moove(string direction, Block block)
         {
-            lblTitreScore.Location = new Point((pnlScore.Width - lblTitreScore.Width)/2, lblTitreScore.Location.Y);
-            lblTitreRecord.Location = new Point((pnlRecord.Width - lblTitreRecord.Width) / 2, lblTitreRecord.Location.Y);
-            lblScore.Location = new Point((pnlScore.Width - lblScore.Width) / 2, lblTitreScore.Location.Y+20);
-            lblRecord.Location = new Point((pnlRecord.Width - lblRecord.Width) / 2, lblTitreRecord.Location.Y+20);
+            // On ne bouge que les blocs qui sont bougeables
+            if (block.Moovable)
+            {
+                string facing = (direction == "up" || direction == "down") ? facing = "vertical" : facing = "horizontal";
+                int modifier = (direction == "up" || direction == "down") ? modifier = 4 : modifier = 1;
+                List<int> column = (direction == "up") ? column = firstLine : (direction == "left") ? column = firstColumn : (direction == "down") ? column = fourthLine : column = fourthColumn;
 
-            startNewGame();
+                // Le tag actuel du bloc qui bouge
+                int tag = int.Parse(block.Tag.ToString());
+                if (direction == "up" || direction == "left")
+                {
+                    while (!column.Contains(tag) && !getPreviousBlock(facing, getBlockByTag(tag)).Moovable)
+                    {
+                        tag -= modifier;
+                    }
+                } else
+                {
+                    while (!column.Contains(tag) && !getNextBlock(facing, getBlockByTag(tag)).Moovable)
+                    {
+                        tag += modifier;
+                    }
+                }
+
+                // Ce bloc est le bloc de destination (jusqu'à où le bloc a voyagé)
+                Block newBlock = getBlockByTag(tag);
+                newBlock.Valeur = block.Valeur;
+
+                Block nearestBlock = (direction == "up" || direction == "left") ? nearestBlock = getPreviousBlock(facing, newBlock) : nearestBlock = getNextBlock(facing, newBlock);
+                
+                // S'il y a une fusion de blocs (même valeur)
+                if (newBlock.Valeur == nearestBlock.Valeur && nearestBlock != newBlock)
+                {
+                    // On incrémente la valeur du bloc
+                    nearestBlock.Valeur *= 2;
+
+                    // On met à jour le score et on le centre sur le panel
+                    lblScore.Text = (int.Parse(lblScore.Text) + nearestBlock.Valeur).ToString();
+                    lblScore.Location = new Point((pnlScore.Width - lblScore.Width)/2, lblTitreScore.Location.Y+20);
+                    
+                    // On supprime le bloc suite à la fusion
+                    newBlock.Valeur = 0;
+                }
+
+                // Si le bloc a bougé, il a forcément changé de case donc on met cette case à 0
+                if (block != newBlock)
+                {
+                    block.Valeur = 0;
+                }
+            }
         }
 
+        /*
+         * Cette fonction permet d'obtenir le bloc précédent selon le facing
+         *  - vertical: on prend le bloc du haut
+         *  - horizontal: on prend le bloc de gauche
+         * 
+         * Si le bloc n'a pas de bloc précédent (exemple: le premier bloc) alors on retourne lui-même)
+         */
+        public Block getPreviousBlock(string facing, Block block)
+        {
+            int modifier = (facing == "horizontal") ? modifier = 1 : modifier = 4;
+            if (getBlockByTag(int.Parse(block.Tag.ToString()) - modifier) == null)
+            {
+                return block;
+            }
+            return getBlockByTag(int.Parse(block.Tag.ToString()) - modifier);
+
+        }
+
+        /*
+         * Cette fonction permet d'obtenir le bloc suivant selon le facing
+         *  - vertical: on prend le bloc du bas
+         *  - horizontal: on prend le bloc de droite
+         * 
+         * Si le bloc n'a pas de bloc suivant (exemple: le dernier bloc) alors on retourne lui-même)
+         */
+        public Block getNextBlock(string facing, Block block)
+        {
+            int modifier = (facing == "horizontal") ? modifier = 1 : modifier = 4;
+            if (getBlockByTag(int.Parse(block.Tag.ToString()) + modifier) == null)
+            {
+                return block;
+            }
+            return getBlockByTag(int.Parse(block.Tag.ToString()) + modifier);
+
+        }
+
+        /*
+         * Cette fonction est appelée lors du clic sur le bouton pour recommencer
+         */
         private void pbxRetry_Click(object sender, EventArgs e)
         {
             if(MessageBox.Show("Voulez-vous vraiment commencer une nouvelle partie ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) startNewGame();

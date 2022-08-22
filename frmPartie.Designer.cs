@@ -30,14 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPartie));
             this.pnlGrille = new System.Windows.Forms.Panel();
-            this.lbl2048 = new System.Windows.Forms.Label();
-            this.pnlScore = new System.Windows.Forms.Panel();
-            this.lblScore = new System.Windows.Forms.Label();
-            this.lblTitreScore = new System.Windows.Forms.Label();
-            this.pnlRecord = new System.Windows.Forms.Panel();
-            this.lblRecord = new System.Windows.Forms.Label();
-            this.lblTitreRecord = new System.Windows.Forms.Label();
-            this.pbxRetry = new System.Windows.Forms.PictureBox();
             this.block16 = new _2048.Block();
             this.block15 = new _2048.Block();
             this.block14 = new _2048.Block();
@@ -54,6 +46,14 @@
             this.block3 = new _2048.Block();
             this.block2 = new _2048.Block();
             this.block1 = new _2048.Block();
+            this.lbl2048 = new System.Windows.Forms.Label();
+            this.pnlScore = new System.Windows.Forms.Panel();
+            this.lblScore = new System.Windows.Forms.Label();
+            this.lblTitreScore = new System.Windows.Forms.Label();
+            this.pnlRecord = new System.Windows.Forms.Panel();
+            this.lblRecord = new System.Windows.Forms.Label();
+            this.lblTitreRecord = new System.Windows.Forms.Label();
+            this.pbxRetry = new System.Windows.Forms.PictureBox();
             this.pnlGrille.SuspendLayout();
             this.pnlScore.SuspendLayout();
             this.pnlRecord.SuspendLayout();
@@ -83,92 +83,6 @@
             this.pnlGrille.Name = "pnlGrille";
             this.pnlGrille.Size = new System.Drawing.Size(480, 471);
             this.pnlGrille.TabIndex = 16;
-            // 
-            // lbl2048
-            // 
-            this.lbl2048.AutoSize = true;
-            this.lbl2048.Font = new System.Drawing.Font("Arial", 40F, System.Drawing.FontStyle.Bold);
-            this.lbl2048.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(110)))), ((int)(((byte)(101)))));
-            this.lbl2048.Location = new System.Drawing.Point(4, 22);
-            this.lbl2048.Name = "lbl2048";
-            this.lbl2048.Size = new System.Drawing.Size(147, 63);
-            this.lbl2048.TabIndex = 17;
-            this.lbl2048.Text = "2048";
-            // 
-            // pnlScore
-            // 
-            this.pnlScore.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(110)))), ((int)(((byte)(101)))));
-            this.pnlScore.Controls.Add(this.lblScore);
-            this.pnlScore.Controls.Add(this.lblTitreScore);
-            this.pnlScore.Location = new System.Drawing.Point(190, 22);
-            this.pnlScore.Name = "pnlScore";
-            this.pnlScore.Size = new System.Drawing.Size(97, 61);
-            this.pnlScore.TabIndex = 16;
-            // 
-            // lblScore
-            // 
-            this.lblScore.AutoSize = true;
-            this.lblScore.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblScore.ForeColor = System.Drawing.Color.White;
-            this.lblScore.Location = new System.Drawing.Point(37, 32);
-            this.lblScore.Name = "lblScore";
-            this.lblScore.Size = new System.Drawing.Size(22, 24);
-            this.lblScore.TabIndex = 19;
-            this.lblScore.Text = "0";
-            // 
-            // lblTitreScore
-            // 
-            this.lblTitreScore.AutoSize = true;
-            this.lblTitreScore.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitreScore.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(228)))), ((int)(((byte)(218)))));
-            this.lblTitreScore.Location = new System.Drawing.Point(21, 10);
-            this.lblTitreScore.Name = "lblTitreScore";
-            this.lblTitreScore.Size = new System.Drawing.Size(55, 20);
-            this.lblTitreScore.TabIndex = 18;
-            this.lblTitreScore.Text = "SCORE";
-            // 
-            // pnlRecord
-            // 
-            this.pnlRecord.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(110)))), ((int)(((byte)(101)))));
-            this.pnlRecord.Controls.Add(this.lblRecord);
-            this.pnlRecord.Controls.Add(this.lblTitreRecord);
-            this.pnlRecord.Location = new System.Drawing.Point(300, 22);
-            this.pnlRecord.Name = "pnlRecord";
-            this.pnlRecord.Size = new System.Drawing.Size(97, 61);
-            this.pnlRecord.TabIndex = 20;
-            // 
-            // lblRecord
-            // 
-            this.lblRecord.AutoSize = true;
-            this.lblRecord.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRecord.ForeColor = System.Drawing.Color.White;
-            this.lblRecord.Location = new System.Drawing.Point(37, 32);
-            this.lblRecord.Name = "lblRecord";
-            this.lblRecord.Size = new System.Drawing.Size(22, 24);
-            this.lblRecord.TabIndex = 19;
-            this.lblRecord.Text = "0";
-            // 
-            // lblTitreRecord
-            // 
-            this.lblTitreRecord.AutoSize = true;
-            this.lblTitreRecord.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitreRecord.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(228)))), ((int)(((byte)(218)))));
-            this.lblTitreRecord.Location = new System.Drawing.Point(14, 10);
-            this.lblTitreRecord.Name = "lblTitreRecord";
-            this.lblTitreRecord.Size = new System.Drawing.Size(73, 20);
-            this.lblTitreRecord.TabIndex = 18;
-            this.lblTitreRecord.Text = "MEILLEUR";
-            this.lblTitreRecord.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // pbxRetry
-            // 
-            this.pbxRetry.Image = global::_2048.Properties.Resources.retry;
-            this.pbxRetry.Location = new System.Drawing.Point(414, 28);
-            this.pbxRetry.Name = "pbxRetry";
-            this.pbxRetry.Size = new System.Drawing.Size(54, 50);
-            this.pbxRetry.TabIndex = 21;
-            this.pbxRetry.TabStop = false;
-            this.pbxRetry.Click += new System.EventHandler(this.pbxRetry_Click);
             // 
             // block16
             // 
@@ -377,6 +291,92 @@
             this.block1.TabStop = false;
             this.block1.Tag = "0";
             this.block1.Valeur = 0;
+            // 
+            // lbl2048
+            // 
+            this.lbl2048.AutoSize = true;
+            this.lbl2048.Font = new System.Drawing.Font("Arial", 40F, System.Drawing.FontStyle.Bold);
+            this.lbl2048.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(110)))), ((int)(((byte)(101)))));
+            this.lbl2048.Location = new System.Drawing.Point(4, 22);
+            this.lbl2048.Name = "lbl2048";
+            this.lbl2048.Size = new System.Drawing.Size(147, 63);
+            this.lbl2048.TabIndex = 17;
+            this.lbl2048.Text = "2048";
+            // 
+            // pnlScore
+            // 
+            this.pnlScore.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(110)))), ((int)(((byte)(101)))));
+            this.pnlScore.Controls.Add(this.lblScore);
+            this.pnlScore.Controls.Add(this.lblTitreScore);
+            this.pnlScore.Location = new System.Drawing.Point(190, 22);
+            this.pnlScore.Name = "pnlScore";
+            this.pnlScore.Size = new System.Drawing.Size(97, 61);
+            this.pnlScore.TabIndex = 16;
+            // 
+            // lblScore
+            // 
+            this.lblScore.AutoSize = true;
+            this.lblScore.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblScore.ForeColor = System.Drawing.Color.White;
+            this.lblScore.Location = new System.Drawing.Point(37, 32);
+            this.lblScore.Name = "lblScore";
+            this.lblScore.Size = new System.Drawing.Size(22, 24);
+            this.lblScore.TabIndex = 19;
+            this.lblScore.Text = "0";
+            // 
+            // lblTitreScore
+            // 
+            this.lblTitreScore.AutoSize = true;
+            this.lblTitreScore.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitreScore.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(228)))), ((int)(((byte)(218)))));
+            this.lblTitreScore.Location = new System.Drawing.Point(21, 10);
+            this.lblTitreScore.Name = "lblTitreScore";
+            this.lblTitreScore.Size = new System.Drawing.Size(55, 20);
+            this.lblTitreScore.TabIndex = 18;
+            this.lblTitreScore.Text = "SCORE";
+            // 
+            // pnlRecord
+            // 
+            this.pnlRecord.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(110)))), ((int)(((byte)(101)))));
+            this.pnlRecord.Controls.Add(this.lblRecord);
+            this.pnlRecord.Controls.Add(this.lblTitreRecord);
+            this.pnlRecord.Location = new System.Drawing.Point(300, 22);
+            this.pnlRecord.Name = "pnlRecord";
+            this.pnlRecord.Size = new System.Drawing.Size(97, 61);
+            this.pnlRecord.TabIndex = 20;
+            // 
+            // lblRecord
+            // 
+            this.lblRecord.AutoSize = true;
+            this.lblRecord.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRecord.ForeColor = System.Drawing.Color.White;
+            this.lblRecord.Location = new System.Drawing.Point(37, 32);
+            this.lblRecord.Name = "lblRecord";
+            this.lblRecord.Size = new System.Drawing.Size(22, 24);
+            this.lblRecord.TabIndex = 19;
+            this.lblRecord.Text = "0";
+            // 
+            // lblTitreRecord
+            // 
+            this.lblTitreRecord.AutoSize = true;
+            this.lblTitreRecord.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitreRecord.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(228)))), ((int)(((byte)(218)))));
+            this.lblTitreRecord.Location = new System.Drawing.Point(12, 10);
+            this.lblTitreRecord.Name = "lblTitreRecord";
+            this.lblTitreRecord.Size = new System.Drawing.Size(73, 20);
+            this.lblTitreRecord.TabIndex = 18;
+            this.lblTitreRecord.Text = "MEILLEUR";
+            this.lblTitreRecord.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pbxRetry
+            // 
+            this.pbxRetry.Image = global::_2048.Properties.Resources.retry;
+            this.pbxRetry.Location = new System.Drawing.Point(414, 28);
+            this.pbxRetry.Name = "pbxRetry";
+            this.pbxRetry.Size = new System.Drawing.Size(54, 50);
+            this.pbxRetry.TabIndex = 21;
+            this.pbxRetry.TabStop = false;
+            this.pbxRetry.Click += new System.EventHandler(this.pbxRetry_Click);
             // 
             // frmPartie
             // 
