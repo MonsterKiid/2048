@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace _2048
 {
-    public partial class Form1 : Form
+    public partial class frmPartie : Form
     {
 
         List<int> firstColumn = new List<int> { 0, 4, 8, 12 };
@@ -23,39 +23,39 @@ namespace _2048
         List<int> thirdLine = new List<int> { 8, 9, 10, 11 };
         List<int> fourthLine = new List<int> { 12, 13, 14, 15 };
 
-        public Form1()
+        public frmPartie()
         {
             InitializeComponent();
         }
 
-        public Bloc getBlockByTag(int tag)
+        public Block getBlockByTag(int tag)
         {
-            foreach (Bloc bloc in pnlGrille.Controls.OfType<Bloc>())
+            foreach (Block block in pnlGrille.Controls.OfType<Block>())
             {
-                if (int.Parse(bloc.Tag.ToString()) == tag)
+                if (int.Parse(block.Tag.ToString()) == tag)
                 {
-                    return bloc;
+                    return block;
                 }
             }
             return null;
         }
 
-        public void mooveUp(Bloc bloc)
+        public void mooveUp(Block block)
         {
-            if (bloc.Moovable)
+            if (block.Moovable)
             {
                 int tour = 0;
-                int tag = int.Parse(bloc.Tag.ToString());
+                int tag = int.Parse(block.Tag.ToString());
                 while (!firstLine.Contains(tag) && !getPreviousBlock("vertical", getBlockByTag(tag)).Moovable)
                 {
                     tag-=4;
                     tour++;
                 }
-                Bloc newBlock = getBlockByTag(tag);
+                Block newBlock = getBlockByTag(tag);
                 newBlock.Moovable = true;
-                newBlock.Valeur = bloc.Valeur;
+                newBlock.Valeur = block.Valeur;
                 ColorBlockByValue(newBlock, newBlock.Valeur);
-                Bloc previousBlock = getPreviousBlock("vertical", newBlock);
+                Block previousBlock = getPreviousBlock("vertical", newBlock);
                 if (newBlock.Valeur == previousBlock.Valeur && previousBlock != newBlock)
                 {
                     ColorBlockByValue(previousBlock, previousBlock.Valeur * 2);
@@ -66,29 +66,29 @@ namespace _2048
                 }
                 if(tour>0)
                 {
-                    bloc.Moovable = false;
-                    bloc.Valeur = 0;
-                    bloc.BackColor = Color.DarkGray;
+                    block.Moovable = false;
+                    block.Valeur = 0;
+                    block.BackColor = Color.DarkGray;
                 }
             }
         }
 
-        public void mooveDown(Bloc bloc)
+        public void mooveDown(Block block)
         {
-            if (bloc.Moovable)
+            if (block.Moovable)
             {
                 int tour = 0;
-                int tag = int.Parse(bloc.Tag.ToString());
+                int tag = int.Parse(block.Tag.ToString());
                 while (!fourthLine.Contains(tag) && !getNextBlock("vertical", getBlockByTag(tag)).Moovable)
                 {
                     tag += 4;
                     tour++;
                 }
-                Bloc newBlock = getBlockByTag(tag);
+                Block newBlock = getBlockByTag(tag);
                 newBlock.Moovable = true;
-                newBlock.Valeur = bloc.Valeur;
+                newBlock.Valeur = block.Valeur;
                 ColorBlockByValue(newBlock, newBlock.Valeur);
-                Bloc nextBlock = getNextBlock("vertical", newBlock);
+                Block nextBlock = getNextBlock("vertical", newBlock);
                 if (newBlock.Valeur == nextBlock.Valeur && newBlock != nextBlock)
                 {
                     ColorBlockByValue(nextBlock, nextBlock.Valeur * 2);
@@ -99,30 +99,30 @@ namespace _2048
                 }
                 if(tour>0)
                 {
-                    bloc.Moovable = false;
-                    bloc.Valeur = 0;
-                    bloc.BackColor = Color.DarkGray;
+                    block.Moovable = false;
+                    block.Valeur = 0;
+                    block.BackColor = Color.DarkGray;
                 }
             }
         }
-        public void mooveLeft(Bloc bloc)
+        public void mooveLeft(Block block)
         {
-            if (bloc.Moovable)
+            if (block.Moovable)
             {
                 int tour = 0;
-                int tag = int.Parse(bloc.Tag.ToString());
+                int tag = int.Parse(block.Tag.ToString());
                 while (!firstColumn.Contains(tag) && !getPreviousBlock("horizontal", getBlockByTag(tag)).Moovable)
                 {
                     tag--;
                     tour++;
                 }
-                Bloc newBlock = getBlockByTag(tag);
+                Block newBlock = getBlockByTag(tag);
                 newBlock.Moovable = true;
-                newBlock.Valeur = bloc.Valeur;
+                newBlock.Valeur = block.Valeur;
                 ColorBlockByValue(newBlock, newBlock.Valeur);
 
-                Bloc previousBlock = getPreviousBlock("horizontal", newBlock);
-                //MessageBox.Show("BLOC " + newBlock.Name + " (Valeur: " + newBlock.Valeur + ")\n\nLe previous block est: " + previousBlock.Name + "\nValeur:" + previousBlock.Valeur);
+                Block previousBlock = getPreviousBlock("horizontal", newBlock);
+                //MessageBox.Show("BLOC " + newBlock.Name + " (Valeur: " + newBlock.Valeur + ")\n\nLe previous blockk est: " + previousBlock.Name + "\nValeur:" + previousBlock.Valeur);
                 if (newBlock.Valeur == previousBlock.Valeur && previousBlock != newBlock)
                 {
                     ColorBlockByValue(previousBlock, previousBlock.Valeur * 2);
@@ -134,29 +134,29 @@ namespace _2048
                 }
                 if(tour>0)
                 {
-                    bloc.Moovable = false;
-                    bloc.Valeur = 0;
-                    bloc.BackColor = Color.DarkGray;
+                    block.Moovable = false;
+                    block.Valeur = 0;
+                    block.BackColor = Color.DarkGray;
                 }
             }
         }
 
-        public void mooveRight(Bloc bloc)
+        public void mooveRight(Block block)
         {
-            if (bloc.Moovable)
+            if (block.Moovable)
             {
                 int tour = 0;
-                int tag = int.Parse(bloc.Tag.ToString());
+                int tag = int.Parse(block.Tag.ToString());
                 while (!fourthColumn.Contains(tag) && !getNextBlock("horizontal", getBlockByTag(tag)).Moovable)
                 {    
                     tag++;
                     tour++;
                 }
-                Bloc newBlock = getBlockByTag(tag);
+                Block newBlock = getBlockByTag(tag);
                 newBlock.Moovable = true;
-                newBlock.Valeur = bloc.Valeur;
+                newBlock.Valeur = block.Valeur;
                 ColorBlockByValue(newBlock, newBlock.Valeur);
-                Bloc nextBlock = getNextBlock("horizontal", newBlock);
+                Block nextBlock = getNextBlock("horizontal", newBlock);
                 if (newBlock.Valeur == nextBlock.Valeur && newBlock != nextBlock)
                 {
                     ColorBlockByValue(nextBlock, nextBlock.Valeur * 2);
@@ -167,15 +167,15 @@ namespace _2048
                 }
                 if(tour>0)
                 {
-                    bloc.Moovable = false;
-                    bloc.Valeur = 0;
-                    bloc.BackColor = Color.DarkGray;
+                    block.Moovable = false;
+                    block.Valeur = 0;
+                    block.BackColor = Color.DarkGray;
                 }
                 
             }
         }
 
-        public Bloc getPreviousBlock(string type, Bloc bloc)
+        public Block getPreviousBlock(string type, Block block)
         {
             int modifier;
             if (type == "horizontal")
@@ -186,15 +186,15 @@ namespace _2048
             {
                 modifier = 4;
             }
-            if (getBlockByTag(int.Parse(bloc.Tag.ToString()) - modifier) == null)
+            if (getBlockByTag(int.Parse(block.Tag.ToString()) - modifier) == null)
             {
-                return bloc;
+                return block;
             }
-            return getBlockByTag(int.Parse(bloc.Tag.ToString()) - modifier);
+            return getBlockByTag(int.Parse(block.Tag.ToString()) - modifier);
 
         }
 
-        public Bloc getNextBlock(string type, Bloc bloc)
+        public Block getNextBlock(string type, Block block)
         {
             int modifier;
             if (type == "horizontal")
@@ -205,124 +205,117 @@ namespace _2048
             {
                 modifier = 4;
             }
-            if (getBlockByTag(int.Parse(bloc.Tag.ToString()) + modifier) == null)
+            if (getBlockByTag(int.Parse(block.Tag.ToString()) + modifier) == null)
             {
-                return bloc;
+                return block;
             }
-            return getBlockByTag(int.Parse(bloc.Tag.ToString()) + modifier);
+            return getBlockByTag(int.Parse(block.Tag.ToString()) + modifier);
 
         }
 
-        public void ColorBlockByValue(Bloc bloc, int value)
+        public void ColorBlockByValue(Block block, int value)
         {
             switch (value)
             {
-                case 2: bloc.BackColor = Color.White; break;
-                case 4: bloc.BackColor = Color.Beige; break;
-                case 8: bloc.BackColor = Color.Orange; break;
-                case 16: bloc.BackColor = Color.Orange; break;
-                case 32: bloc.BackColor = Color.Tomato; break;
-                case 64: bloc.BackColor = Color.Red; break;
-                case 128: bloc.BackColor = Color.Yellow; break;
-                case 256: bloc.BackColor = Color.Yellow; break;
-                case 512: bloc.BackColor = Color.Yellow; break;
-                case 1024: bloc.BackColor = Color.Yellow; break;
-                case 2048: bloc.BackColor = Color.Gold; break;
-                default: bloc.BackColor = Color.DarkGray; break;
+                case 0: block.BackColor = Color.FromArgb(238, 228, 218); break;
+                case 2: block.BackColor = ColorTranslator.FromHtml("#eee4da"); break;
+                case 4: block.BackColor = ColorTranslator.FromHtml("#ede0c8"); break;
+                case 8: case 16: block.BackColor = ColorTranslator.FromHtml("#f2b179"); break;
+                case 32: block.BackColor = ColorTranslator.FromHtml("#f67c5f"); break;
+                case 64: block.BackColor = ColorTranslator.FromHtml("#f65e3b"); break;
+                default: block.BackColor = ColorTranslator.FromHtml("#edcf72"); break;
             }
+            if (value > 4) ColorTranslator.FromHtml("#f9f6f2");
+            
+
         }
 
-        private void Form1_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        private void frmPartie_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
             if (e.KeyCode == Keys.Right)
             {
                 foreach (int i in thirdColumn)
                 {
-                    Bloc bloc = getBlockByTag(i);
-                    mooveRight(bloc);
+                    Block block = getBlockByTag(i);
+                    mooveRight(block);
                 }
                 foreach (int i in secondColumn)
                 {
-                    Bloc bloc = getBlockByTag(i);
-                    mooveRight(bloc);
+                    Block block = getBlockByTag(i);
+                    mooveRight(block);
                 }
                 foreach (int i in firstColumn)
                 {
-                    Bloc bloc = getBlockByTag(i);
-                    mooveRight(bloc);
+                    Block block = getBlockByTag(i);
+                    mooveRight(block);
                 }
             }
             else if (e.KeyCode == Keys.Left)
             {
                 foreach (int i in secondColumn)
                 {
-                    Bloc bloc = getBlockByTag(i);
-                    mooveLeft(bloc);
+                    Block block = getBlockByTag(i);
+                    mooveLeft(block);
                 }
                 foreach (int i in thirdColumn)
                 {
-                    Bloc bloc = getBlockByTag(i);
-                    mooveLeft(bloc);
+                    Block block = getBlockByTag(i);
+                    mooveLeft(block);
                 }
                 foreach (int i in fourthColumn)
                 {
-                    Bloc bloc = getBlockByTag(i);
-                    mooveLeft(bloc);
+                    Block block = getBlockByTag(i);
+                    mooveLeft(block);
                 }
             }
             else if (e.KeyCode == Keys.Down)
             {
                 foreach (int i in thirdLine)
                 {
-                    Bloc bloc = getBlockByTag(i);
-                    mooveDown(bloc);
+                    Block block = getBlockByTag(i);
+                    mooveDown(block);
                 }
                 foreach (int i in secondLine)
                 {
-                    Bloc bloc = getBlockByTag(i);
-                    mooveDown(bloc);
+                    Block block = getBlockByTag(i);
+                    mooveDown(block);
                 }
                 foreach (int i in firstLine)
                 {
-                    Bloc bloc = getBlockByTag(i);
-                    mooveDown(bloc);
+                    Block block = getBlockByTag(i);
+                    mooveDown(block);
                 }
             }
             else if (e.KeyCode == Keys.Up)
             {
                 foreach (int i in secondLine)
                 {
-                    Bloc bloc = getBlockByTag(i);
-                    mooveUp(bloc);
+                    Block block = getBlockByTag(i);
+                    mooveUp(block);
                 }
                 foreach (int i in thirdLine)
                 {
-                    Bloc bloc = getBlockByTag(i);
-                    mooveUp(bloc);
+                    Block block = getBlockByTag(i);
+                    mooveUp(block);
                 }
                 foreach (int i in fourthLine)
                 {
-                    Bloc bloc = getBlockByTag(i);
-                    mooveUp(bloc);
+                    Block block = getBlockByTag(i);
+                    mooveUp(block);
                 }
             }
             bool found = false;
-            foreach(Bloc bloc in pnlGrille.Controls.OfType<Bloc>())
+            foreach(Block block in pnlGrille.Controls.OfType<Block>())
             {
-                if(!bloc.Moovable && !found)
+                if(!block.Moovable && !found)
                 {
           
                     found = true;
-                    bloc.Moovable = true;
-                    bloc.Valeur = 2;
-                    bloc.BackColor = Color.White;
+                    block.Moovable = true;
+                    block.Valeur = 2;
+                    block.BackColor = Color.White;
                 }
             }
-        }
-
-        private void bloc1_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
-        {
-
         }
     }
 }

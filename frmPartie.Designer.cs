@@ -1,6 +1,6 @@
 ﻿namespace _2048
 {
-    partial class Form1
+    partial class frmPartie
     {
         /// <summary>
         /// Variable nécessaire au concepteur.
@@ -29,28 +29,39 @@
         private void InitializeComponent()
         {
             this.pnlGrille = new System.Windows.Forms.Panel();
-            this.bloc13 = new _2048.Bloc();
-            this.bloc14 = new _2048.Bloc();
-            this.bloc15 = new _2048.Bloc();
-            this.bloc16 = new _2048.Bloc();
-            this.bloc9 = new _2048.Bloc();
-            this.bloc10 = new _2048.Bloc();
-            this.bloc11 = new _2048.Bloc();
-            this.bloc12 = new _2048.Bloc();
-            this.bloc5 = new _2048.Bloc();
-            this.bloc6 = new _2048.Bloc();
-            this.bloc7 = new _2048.Bloc();
-            this.bloc8 = new _2048.Bloc();
-            this.bloc4 = new _2048.Bloc();
-            this.bloc3 = new _2048.Bloc();
-            this.bloc2 = new _2048.Bloc();
-            this.bloc1 = new _2048.Bloc();
+            this.bloc13 = new _2048.Block();
+            this.bloc14 = new _2048.Block();
+            this.bloc15 = new _2048.Block();
+            this.bloc16 = new _2048.Block();
+            this.bloc9 = new _2048.Block();
+            this.bloc10 = new _2048.Block();
+            this.bloc11 = new _2048.Block();
+            this.bloc12 = new _2048.Block();
+            this.bloc5 = new _2048.Block();
+            this.bloc6 = new _2048.Block();
+            this.bloc7 = new _2048.Block();
+            this.bloc8 = new _2048.Block();
+            this.bloc4 = new _2048.Block();
+            this.bloc3 = new _2048.Block();
+            this.bloc2 = new _2048.Block();
+            this.bloc1 = new _2048.Block();
+            this.lbl2048 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lblScore = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblMeilleur = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlGrille.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlGrille
             // 
-            this.pnlGrille.BackColor = System.Drawing.Color.DimGray;
+            this.pnlGrille.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(110)))), ((int)(((byte)(101)))));
             this.pnlGrille.Controls.Add(this.bloc13);
             this.pnlGrille.Controls.Add(this.bloc14);
             this.pnlGrille.Controls.Add(this.bloc15);
@@ -67,7 +78,7 @@
             this.pnlGrille.Controls.Add(this.bloc3);
             this.pnlGrille.Controls.Add(this.bloc2);
             this.pnlGrille.Controls.Add(this.bloc1);
-            this.pnlGrille.Location = new System.Drawing.Point(28, 20);
+            this.pnlGrille.Location = new System.Drawing.Point(0, 100);
             this.pnlGrille.Name = "pnlGrille";
             this.pnlGrille.Size = new System.Drawing.Size(480, 471);
             this.pnlGrille.TabIndex = 16;
@@ -270,65 +281,168 @@
             // 
             // bloc2
             // 
-            this.bloc2.BackColor = System.Drawing.Color.Orange;
+            this.bloc2.BackColor = System.Drawing.Color.DarkGray;
             this.bloc2.Location = new System.Drawing.Point(132, 11);
-            this.bloc2.Moovable = true;
+            this.bloc2.Moovable = false;
             this.bloc2.Name = "bloc2";
             this.bloc2.Size = new System.Drawing.Size(100, 100);
             this.bloc2.TabIndex = 1;
             this.bloc2.TabStop = false;
             this.bloc2.Tag = "1";
-            this.bloc2.Valeur = 8;
+            this.bloc2.Valeur = 0;
             this.bloc2.X = 1;
             this.bloc2.Y = 0;
             // 
             // bloc1
             // 
-            this.bloc1.BackColor = System.Drawing.Color.White;
+            this.bloc1.BackColor = System.Drawing.Color.DarkGray;
             this.bloc1.Location = new System.Drawing.Point(15, 11);
-            this.bloc1.Moovable = true;
+            this.bloc1.Moovable = false;
             this.bloc1.Name = "bloc1";
             this.bloc1.Size = new System.Drawing.Size(100, 100);
             this.bloc1.TabIndex = 0;
             this.bloc1.TabStop = false;
             this.bloc1.Tag = "0";
-            this.bloc1.Valeur = 2;
+            this.bloc1.Valeur = 0;
             this.bloc1.X = 0;
             this.bloc1.Y = 0;
             // 
-            // Form1
+            // lbl2048
+            // 
+            this.lbl2048.AutoSize = true;
+            this.lbl2048.Font = new System.Drawing.Font("Arial", 40F, System.Drawing.FontStyle.Bold);
+            this.lbl2048.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(110)))), ((int)(((byte)(101)))));
+            this.lbl2048.Location = new System.Drawing.Point(4, 22);
+            this.lbl2048.Name = "lbl2048";
+            this.lbl2048.Size = new System.Drawing.Size(147, 63);
+            this.lbl2048.TabIndex = 17;
+            this.lbl2048.Text = "2048";
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(110)))), ((int)(((byte)(101)))));
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.lblScore);
+            this.panel1.Location = new System.Drawing.Point(190, 22);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(97, 61);
+            this.panel1.TabIndex = 16;
+            // 
+            // lblScore
+            // 
+            this.lblScore.AutoSize = true;
+            this.lblScore.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblScore.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(228)))), ((int)(((byte)(218)))));
+            this.lblScore.Location = new System.Drawing.Point(21, 10);
+            this.lblScore.Name = "lblScore";
+            this.lblScore.Size = new System.Drawing.Size(55, 20);
+            this.lblScore.TabIndex = 18;
+            this.lblScore.Text = "SCORE";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(37, 32);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(22, 24);
+            this.label1.TabIndex = 19;
+            this.label1.Text = "0";
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(110)))), ((int)(((byte)(101)))));
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.lblMeilleur);
+            this.panel2.Location = new System.Drawing.Point(300, 22);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(97, 61);
+            this.panel2.TabIndex = 20;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(37, 32);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(22, 24);
+            this.label2.TabIndex = 19;
+            this.label2.Text = "0";
+            // 
+            // lblMeilleur
+            // 
+            this.lblMeilleur.AutoSize = true;
+            this.lblMeilleur.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMeilleur.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(228)))), ((int)(((byte)(218)))));
+            this.lblMeilleur.Location = new System.Drawing.Point(14, 10);
+            this.lblMeilleur.Name = "lblMeilleur";
+            this.lblMeilleur.Size = new System.Drawing.Size(73, 20);
+            this.lblMeilleur.TabIndex = 18;
+            this.lblMeilleur.Text = "MEILLEUR";
+            this.lblMeilleur.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::_2048.Properties.Resources.retry;
+            this.pictureBox1.Location = new System.Drawing.Point(414, 28);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(54, 50);
+            this.pictureBox1.TabIndex = 21;
+            this.pictureBox1.TabStop = false;
+            // 
+            // frmPartie
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(539, 503);
+            this.ClientSize = new System.Drawing.Size(480, 571);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.lbl2048);
             this.Controls.Add(this.pnlGrille);
-            this.Name = "Form1";
+            this.Name = "frmPartie";
             this.Text = "Form1";
-            this.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.Form1_PreviewKeyDown);
+            this.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.frmPartie_PreviewKeyDown);
             this.pnlGrille.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private Bloc bloc1;
-        private Bloc bloc2;
-        private Bloc bloc3;
-        private Bloc bloc4;
-        private Bloc bloc5;
-        private Bloc bloc6;
-        private Bloc bloc7;
-        private Bloc bloc8;
-        private Bloc bloc9;
-        private Bloc bloc10;
-        private Bloc bloc11;
-        private Bloc bloc12;
-        private Bloc bloc13;
-        private Bloc bloc14;
-        private Bloc bloc15;
-        private Bloc bloc16;
+        private Block bloc1;
+        private Block bloc2;
+        private Block bloc3;
+        private Block bloc4;
+        private Block bloc5;
+        private Block bloc6;
+        private Block bloc7;
+        private Block bloc8;
+        private Block bloc9;
+        private Block bloc10;
+        private Block bloc11;
+        private Block bloc12;
+        private Block bloc13;
+        private Block bloc14;
+        private Block bloc15;
+        private Block bloc16;
         private System.Windows.Forms.Panel pnlGrille;
+        private System.Windows.Forms.Label lbl2048;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblScore;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblMeilleur;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 
