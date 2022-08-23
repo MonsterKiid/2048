@@ -391,6 +391,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmPartie";
             this.Text = "Le jeu du 2048";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmPartie_FormClosed);
             this.Load += new System.EventHandler(this.frmPartie_Load);
             this.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.frmPartie_PreviewKeyDown);
             this.pnlGrille.ResumeLayout(false);

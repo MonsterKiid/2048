@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace _2048
 {
@@ -41,30 +42,30 @@ namespace _2048
             // Si le joueur appuie sur la flèche de droite
             if (e.KeyCode == Keys.Right)
             {
-                foreach (int i in thirdColumn) moove("right", getBlockByTag(i));
-                foreach (int i in secondColumn) moove("right", getBlockByTag(i));
-                foreach (int i in firstColumn) moove("right", getBlockByTag(i));
+                foreach (int i in thirdColumn) move("right", getBlockByTag(i));
+                foreach (int i in secondColumn) move("right", getBlockByTag(i));
+                foreach (int i in firstColumn) move("right", getBlockByTag(i));
             }
             // Si le joueur appuie sur la flèche de gauche
             else if (e.KeyCode == Keys.Left)
             {
-                foreach (int i in secondColumn) moove("left", getBlockByTag(i));
-                foreach (int i in thirdColumn) moove("left", getBlockByTag(i));
-                foreach (int i in fourthColumn) moove("left", getBlockByTag(i));
+                foreach (int i in secondColumn) move("left", getBlockByTag(i));
+                foreach (int i in thirdColumn) move("left", getBlockByTag(i));
+                foreach (int i in fourthColumn) move("left", getBlockByTag(i));
             }
             // Si le joueur appuie sur la flèche du bas
             else if (e.KeyCode == Keys.Down)
             {
-                foreach (int i in thirdLine) moove("down", getBlockByTag(i));
-                foreach (int i in secondLine) moove("down", getBlockByTag(i));
-                foreach (int i in firstLine) moove("down", getBlockByTag(i));
+                foreach (int i in thirdLine) move("down", getBlockByTag(i));
+                foreach (int i in secondLine) move("down", getBlockByTag(i));
+                foreach (int i in firstLine) move("down", getBlockByTag(i));
             }
             // Si le joueur appuie sur la flèche du haut
             else if (e.KeyCode == Keys.Up)
             {
-                foreach (int i in secondLine) moove("up", getBlockByTag(i));
-                foreach (int i in thirdLine) moove("up", getBlockByTag(i));
-                foreach (int i in fourthLine) moove("up", getBlockByTag(i));
+                foreach (int i in secondLine) move("up", getBlockByTag(i));
+                foreach (int i in thirdLine) move("up", getBlockByTag(i));
+                foreach (int i in fourthLine) move("up", getBlockByTag(i));
             }
             // Si le joueur appuie sur une autre touche, on bloque l'ajout d'un autre bloc
             else
@@ -80,6 +81,12 @@ namespace _2048
         private void frmPartie_Load(object sender, EventArgs e)
         {
             startNewGame();
+            StreamReader sr = new StreamReader("../../save.txt");
+            lblRecord.Text = sr.ReadLine();
+            lblRecord.Location = new Point((pnlScore.Width - lblRecord.Width) / 2, lblTitreRecord.Location.Y + 20);
+            sr.Close();
+            writeRecord();
+
         }
 
         /*
@@ -94,11 +101,16 @@ namespace _2048
             // Mise du score à 0
             lblScore.Text = "0";
 
+            // Recentrage des labels
+            lblScore.Location = new Point((pnlScore.Width - lblScore.Width) / 2, lblTitreScore.Location.Y + 20);
+            lblRecord.Location = new Point((pnlScore.Width - lblRecord.Width) / 2, lblTitreRecord.Location.Y + 20);
+
             // Réinitialisation des blocs
             foreach (Block block in pnlGrille.Controls.OfType<Block>())
             {
                 block.Valeur = 0;
             }
+
 
             // Ajout de deux nouveaux blocs
             for (int i = 0; i < 2; i++)
@@ -120,14 +132,22 @@ namespace _2048
             // Cette variable permet d'arrêter l'assignation d'un bloc dès qu'un est trouvé
             bool found = false;
             Random r = new Random();
-            foreach (Block block in pnlGrille.Controls.OfType<Block>().OrderBy(x => r.Next()))
+            foreach (Block block in pnlGrille.Controls.OfType<Block>().Where(b => b.Moovable == false).OrderBy(x => r.Next()))
             {
-                if (!block.Moovable && !found)
+                if (!found)
                 {
                     found = true;
-                    block.Valeur = 2;
+                    if (r.Next(0, 100) < 25) //25%
+                    {
+                        block.Valeur = 4;                    
+                    }
+                    else
+                    {
+                        block.Valeur = 2;
+                    }
                 }
             }
+            
         }
 
         /*
@@ -155,7 +175,7 @@ namespace _2048
          *  - la column (qui est la dernière colonne de la direction)
          *  - le nearestBlock (qui est le bloc voisin le plus proche selon le facing)
          */
-        public void moove(string direction, Block block)
+        public void move(string direction, Block block)
         {
             // On ne bouge que les blocs qui sont bougeables
             if (block.Moovable)
@@ -198,7 +218,10 @@ namespace _2048
                     // On met à jour le score et on le centre sur le panel
                     lblScore.Text = (int.Parse(lblScore.Text) + nearestBlock.Valeur).ToString();
                     lblScore.Location = new Point((pnlScore.Width - lblScore.Width)/2, lblTitreScore.Location.Y+20);
-                    
+
+                    // On met à jour le record s'il est supérieur à l'ancien
+                    writeRecord();
+
                     // On supprime le bloc suite à la fusion
                     newBlock.Valeur = 0;
                 }
@@ -208,6 +231,22 @@ namespace _2048
                 {
                     block.Valeur = 0;
                 }
+            }
+        }
+
+        /*
+         * Cette fonction permet d'inscrire le record du joueur stocké dans le fichier save.txt
+         */
+        public void writeRecord()
+        {
+            if (int.Parse(lblRecord.Text) < int.Parse(lblScore.Text))
+            {
+                StreamWriter sw = new StreamWriter("../../save.txt", false);
+                sw.WriteLine(lblScore.Text);
+                lblRecord.Text = lblScore.Text;
+                lblRecord.Location = new Point((pnlScore.Width - lblRecord.Width) / 2, lblTitreRecord.Location.Y + 20);
+
+                sw.Close();
             }
         }
 
@@ -253,6 +292,14 @@ namespace _2048
         private void pbxRetry_Click(object sender, EventArgs e)
         {
             if(MessageBox.Show("Voulez-vous vraiment commencer une nouvelle partie ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) startNewGame();
+        }
+
+        /*
+         * Cette fonction est appelée lors de la fermeture du formulaire
+         */
+        private void frmPartie_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            writeRecord();
         }
     }
 }
